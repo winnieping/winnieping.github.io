@@ -1,6 +1,9 @@
 *{
 	margin:0;
 	padding:0;
+	box-sizing: border-box;
+	-moz-box-sizing:border-box; 
+	-webkit-box-sizing:border-box;
 }
 html,body{
 	margin:0;
@@ -20,7 +23,7 @@ html,body{
 	position: absolute;
 	margin: 0 auto;
 	overflow: hidden;
-	background: #ddd;
+	background: #fff;
 }
 .left{
 	width: 50%;
@@ -58,6 +61,9 @@ html,body{
 	height: 30px;
 	width: 30px;
 	text-align: center;
+	box-sizing: content-box;
+	-moz-box-sizing:content-box; 
+	-webkit-box-sizing:content-box;
 }
 .navigation:before{
     content: "";
@@ -86,6 +92,7 @@ html,body{
 .right{
 	width: 50%;
 	float: left;
+	padding: 20px 40px;
 }
 .index-box{
 	padding: 10px;
@@ -94,5 +101,5 @@ html,body{
 	list-style:none;
 }
 .index-box ul li a{
-	color:#fff;
+	color:#000;
 }

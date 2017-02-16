@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="/styles/css/index.css">
-		<title>第一篇</title>
+		<title>Git使用笔记</title>
 　　</head>
 　　<body>
 　　　　	<div class="container">
@@ -15,7 +15,7 @@
 			<div class="motto">依你之萍</div>
 			<div class="navigation">
 				<span class="btn pink">
-					<a href="http://localhost:4000" target="_blank">
+					<a href="http://localhost:4000">
 						<img src="/../assets/home.png" alt="home">
 					</a>
 				</span>
@@ -39,8 +39,37 @@
 	</div>
 	<div class="right">
 		<!-- ![tupian](http://localhost:4000/assets/logo.png) -->
+<h1 id="git使用">Git使用</h1>
 
-<p><img src="http://localhost:4000/assets/logo.jpg" alt="tupian" /></p>
+<h3 id="一git介绍">一、Git介绍</h3>
+<p>Git：分布式版本管理系统，为了更好地管理Linux内核开发而创立.<br />
+有暂存区概念。<br />
+工作区+版本库（stage：暂存区 + master：分支）</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git add -&gt;提交到暂存区 
+git commit -&gt;提交到当前分支。
+</code></pre>
+</div>
+<p>为什么要这样做：Git跟踪的是修改而不是文件</p>
+
+<h3 id="二语法">二、语法</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git add . 把文件添加到仓库 .表示将所有的文件添加
+git add a.txt 把a.txt添加到仓库
+git commit -m ‘注释’ 把文件提交到仓库
+git remote add origin ssh地址 关联远程库,该远程库名字默认为origin
+git push -u origin master 远程库为空，第一次推送时加上-u参数，
+git不止把本地master分支内容推送到远程库，还将两个分支关联起来，
+以后推送拉取可以简化命令。
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Git clone ssh地址 从远程库克隆一个仓库
+git pull /git pull origin master :wq退出
+git status 显示当前仓库状态
+
+</code></pre>
+</div>
 
 <p>　　　　</p>
 
