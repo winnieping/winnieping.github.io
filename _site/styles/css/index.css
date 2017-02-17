@@ -95,11 +95,38 @@ html,body{
 	padding: 20px 40px;
 }
 .index-box{
-	padding: 10px;
+	width: 80%;
+	height: 75%;
+	position: absolute;
+	top:50%;
+	left: 75%;
+	transform: translate(-25%,-50%);
+	-ms-transform: translate(-25%,-50%);
+	-webkit-transform: translate(-25%,-50%);  
+	overflow: hidden;
 }
-.index-box ul{
+.index-box .title{
+	height: 15%;
+	font-size:35px;
+	color:#474747; 
+	font-family: "weblysleek_uilight",sans-serif;
+}
+.index-box .content{
+	height: 85%;
+	overflow: hidden;
+}
+.index-box .content p{
+	display: inline-block;
+	margin: 5px 0;
+}
+.line{
+	height: 2px;
+	width: 200px;
+	background-color: #2dd6c6;
+}
+.list-box ul{
 	list-style:none;
 }
-.index-box ul li a{
+.list-box ul li a{
 	color:#000;
 }
