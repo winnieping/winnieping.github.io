@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/styles/css/index.css">
+		<title>正则表达式(RegExp）</title>
+　　</head>
+　　<body>
+　　　　	<div class="container">
+	<div class="left">
+		<div class="content">
+			<div class="logo">
+				<img src="/../assets/logo.jpg" alt="logo">
+			</div>
+			<div class="motto">依你之萍</div>
+			<div class="navigation">
+				<span class="btn pink">
+					<a href="http://localhost:4000">
+						<img src="/../assets/home.png" alt="home">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="http://weibo.com/u/2627764953" target="_blank">
+						<img src="/../assets/weibo.png" alt="weibo">
+					</a>
+				</span>
+				<span class="btn pink">
+					<a href="https://github.com/winnieping" target="_blank">
+						<img src="/../assets/github.png" alt="github">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="/2016/02/01/list.html">
+						<img src="/../assets/note.png" alt="note">
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<h1 id="正则表达式regexp">正则表达式(RegExp）</h1>
+<p>正则表达式：regular expression <br />
+用途：查找特定的文本，或者查找并替换特定的文本</p>
+<h3 id="1特殊字符">1、特殊字符</h3>
+<p><img src="/../assets/regexp_01.png" alt="note" /></p>
+
+<h3 id="2限定符">2、限定符</h3>
+<p><img src="/../assets/regexp_02.png" alt="note" /></p>
+
+<h3 id="3非打印字符">3、非打印字符</h3>
+<p><img src="/../assets/regexp_03.png" alt="note" /></p>
+
+<h3 id="4定位符">4、定位符</h3>
+<p><img src="/../assets/regexp_04.png" alt="note" /></p>
+
+<h3 id="5其他">5、其他</h3>
+<p><img src="/../assets/regexp_05.png" alt="note" /></p>
+
+<h3 id="6匹配规则示例">6、匹配规则示例</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>^once 		匹配以once开头  
+end$ 		匹配以end结尾  
+^hhhh$  	匹配精确的hhhh    
+
+[a-z] 		匹配所有的小写字母  
+[A-Z] 		匹配所有的大写字母  
+[a-zA-Z] 	匹配所有的字母  
+[0-9] 		匹配所有的数字  
+[0-9\.\-] 	匹配所有的数字和句号减号  
+[\f\r\t\n]  	匹配所有的空白符   
+</code></pre>
+</div>
+<p>非字符</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>[^a-z] 		匹配小写字母以外的所有字符  
+[^\\\/\^] 	匹配(\)(/)(^)之外的所有字符 
+[^\"\'] 	匹配双引号(")和单引号(')之外的所有字符
+</code></pre>
+</div>
+<p>确定重复出现
+<img src="/../assets/regexp_06.png" alt="note" /></p>
+
+	</div>
+</div>
+
+
+　　</body>
+</html>
