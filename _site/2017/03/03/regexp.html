@@ -57,8 +57,9 @@
 <p><img src="/../assets/regexp_05.png" alt="note" /></p>
 
 <h3 id="6匹配规则示例">6、匹配规则示例</h3>
+<h5 id="61-开头结尾">6.1 开头结尾</h5>
 <div class="highlighter-rouge"><pre class="highlight"><code>^once 		匹配以once开头  
-end$ 		匹配以end结尾  
+ end$ 		匹配以end结尾  
 ^hhhh$  	匹配精确的hhhh    
 
 [a-z] 		匹配所有的小写字母  
@@ -69,14 +70,14 @@ end$ 		匹配以end结尾
 [\f\r\t\n]  	匹配所有的空白符   
 </code></pre>
 </div>
-<p>非字符</p>
+<h5 id="62-非字符">6.2 非字符</h5>
 <div class="highlighter-rouge"><pre class="highlight"><code>[^a-z] 		匹配小写字母以外的所有字符  
 [^\\\/\^] 	匹配(\)(/)(^)之外的所有字符 
 [^\"\'] 	匹配双引号(")和单引号(')之外的所有字符
 </code></pre>
 </div>
-<p>确定重复出现
-<img src="/../assets/regexp_06.png" alt="note" /></p>
+<h5 id="63-确定重复出现">6.3 确定重复出现</h5>
+<p><img src="/../assets/regexp_06.png" alt="note" /></p>
 
 	</div>
 </div>
