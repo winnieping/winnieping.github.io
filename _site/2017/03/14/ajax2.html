@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/styles/css/index.css">
+		<title>Ajax介绍（下）</title>
+　　</head>
+　　<body>
+　　　　	<div class="container">
+	<div class="left">
+		<div class="content">
+			<div class="logo">
+				<img src="/../assets/logo.jpg" alt="logo">
+			</div>
+			<div class="motto">依你之萍</div>
+			<div class="navigation">
+				<span class="btn pink">
+					<a href="http://localhost:4000">
+						<img src="/../assets/home.png" alt="home">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="http://weibo.com/u/2627764953" target="_blank">
+						<img src="/../assets/weibo.png" alt="weibo">
+					</a>
+				</span>
+				<span class="btn pink">
+					<a href="https://github.com/winnieping" target="_blank">
+						<img src="/../assets/github.png" alt="github">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="/2016/02/01/list.html">
+						<img src="/../assets/note.png" alt="note">
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<h3 id="ajax介绍下">Ajax介绍（下）</h3>
+<h4 id="1jquery-调用ajax">1、jQuery 调用Ajax</h4>
+<div class="highlighter-rouge"><pre class="highlight"><code>$.ajax({
+	type:'post',
+	url:'test.php',
+	data:'name = aaa &amp; age = 8',
+	dataType:'json',
+	success:function(data){
+		$('#mydiv').html('&lt;h2&gt;'+data+'&lt;h2&gt;');
+	},
+	error:functon(){
+		alert('error');
+	},
+}) 
+</code></pre>
+</div>
+<h4 id="2react-ajax框架">2、react Ajax框架</h4>
+<p>react有很多ajax框架，项目采用fetch</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>fetch(url, fetchOption).then(function (response) {
+		return response.json();
+	}).then(function (json) {
+		try {
+			dispatch({
+				type: options.action,
+				fetchStatus: 200,
+				data: json,
+				error: null,
+				param: param
+			});
+		} catch (err) {
+			console.log(err);
+			console.log('fetch succ, dispatch error');
+		}
+		callback &amp;&amp; callback(json);
+		// 请求成功回调
+	}).catch(function (err) {
+		console.log(err);
+		dispatch({
+			type: options.action,
+			fetchStatus: 1,
+			msg: '网络不给力，请稍后再试',
+			error: err,
+			param: param
+		});
+	});
+</code></pre>
+</div>
+<p>我们通过网络请求url资源，将服务器返回的Body解析，定义了以下方法解析并返回一个包含 response对象的promise对象，方法有<br />
+arrayBuffer()<br />
+blob()<br />
+json()<br />
+text()<br />
+formData()<br />
+获取解析数据后，我们可以继续操作。</p>
+
+	</div>
+</div>
+
+
+　　</body>
+</html>
