@@ -43,7 +43,7 @@
 <h3 id="即需要应用不同的css样式">即需要应用不同的css样式。</h3>
 <h3 id="目前项目中针对这一情况采取css3单位-rem--媒体查询-实现响应">目前项目中针对这一情况，采取css3单位 rem + 媒体查询 实现响应</h3>
 <h3 id="1rem-root-element">1、REM (root element)</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>html{
+<div class="highlighter-rouge"><pre class="highlight"><code>html,body{
 	font-size:100px;
 }
 .text{
@@ -63,7 +63,9 @@
 
 <p>即font-size:625%;</p>
 
-<p>此时，不用管设计稿的大小，你的1rem 就是100px；</p>
+<p>此时，不用管设计稿的大小，你的1rem 就是100px；
+然后我们只需在window初始化的时候，改变font-size的大小，
+或者在浏览器窗口每次调整后，监听resize事件，重置font-size大小，实现响应式布局。</p>
 
 <h3 id="2媒体查询">2、媒体查询</h3>
 <p>浏览器的可视区域宽度小于400px:<br />

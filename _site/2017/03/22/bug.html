@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="/styles/css/index.css">
-		<title>我的blog</title>
+		<title>入坑总结</title>
 　　</head>
 　　<body>
 　　　　	<div class="container">
@@ -38,27 +38,12 @@
 		</div>
 	</div>
 	<div class="right">
-		<div class="index-box">
-	<div class="title">Aboute me</div>
-	<div class="line"></div>
-	<div class="text">
-		If you have a question, find a bug, or just want to say hi, contact me on github.
-	</div>
-	<div class="content img">
-		<div class='img-box'>
-			<img src="/../assets/pic/pic01.jpeg">
-		</div>
-		<div class='img-box'>
-			<img src="/../assets/pic/pic02.jpeg">
-		</div>
-		<div class='img-box'>
-			<img src="/../assets/pic/pic03.jpeg">
-		</div>
-		<div class='img-box'>
-			<img src="/../assets/pic/pic04.jpeg">
-		</div>	
-	</div>
-</div>
+		<h3 id="1react-报错">1.react 报错</h3>
+<p>TypeError: Cannot assign to read only property ‘exports’ of object ‘#<object>’
+找了半天，终于找到原因。You can mix require and export. You can‘t mix import and module.exports.
+提醒自己，以后一定要配对使用require和module.exports以及import和export default。
+而且貌似只有mac才报错，windows不会！奇葩！！！</object></p>
+
 	</div>
 </div>
 

@@ -128,9 +128,13 @@ f();
    }
 
 这就是我所理解的闭包, 简单点说就是专门用来"包养"变量的.
+总结：闭包是什么？闭包就是把参数传入一个函数，来包养这个变量，使变量不随其他定义改变。
+	因为js没有静态变量哈。
 </code></pre>
 </div>
-<p>以上参考 https://www.douban.com/note/293295975/</p>
+<p>4.闭包的缺点
+变量会一直占用内存。
+以上参考 https://www.douban.com/note/293295975/</p>
 <h3 id="拓展自执行匿名函数">拓展——自执行匿名函数</h3>
 <p>var f = function(){<strong>**}; //定义一个函数<br />
 f(); //当我们在函数后面加个括号就能实现自执行，那么是不是意味着下面这个也可以自执行?<br />
@@ -164,6 +168,9 @@ function(){</strong>**}();  //SyntaxError: Unexpected token <br />
 相当于 function　(x,y) {<br />
   	return x + y;<br />
   }</p>
+<h3 id="3this作用域">3、this作用域</h3>
+<p>在箭头函数里面，this的作用域是词法作用域，由上下文确定。
+而js里面this的作用域是全局。</p>
 
 
 	</div>
