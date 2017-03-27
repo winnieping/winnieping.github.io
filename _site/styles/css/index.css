@@ -107,7 +107,7 @@ html,body{
 	// transform: translate(25%,-50%);
 	// -ms-transform: translate(25%,-50%);
 	// -webkit-transform: translate(25%,-50%);  
-	overflow: hidden;
+	// overflow: hidden;
 }
 .index-box .title{
 	max-width: 100%;

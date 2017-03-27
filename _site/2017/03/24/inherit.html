@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="/styles/css/index.css">
-		<title>inherit</title>
+		<title>继承（inherit）</title>
 　　</head>
 　　<body>
 　　　　	<div class="container">
@@ -40,7 +40,94 @@
 	<div class="right">
 		<h3 id="继承inherit">继承（inherit）</h3>
 <p>Javascript如何实现继承?
-有原型继承，构造继承，组合继承，寄生继承。</p>
+有原型链继承，构造继承，实例继承，组合继承，寄生继承。</p>
+<h5 id="1父类">1.父类</h5>
+<p>function Animal(name){
+	this.name = name || ‘Animal’; //属性
+	this.sleep = function(){
+		console.log(this.name + ‘ is sleeping’); 
+	} //实例方法
+}
+Animal.prototype.eat = function(food){
+	console.log(this.name + ‘ eat ‘ +food );
+} //原型方法</p>
+<h5 id="2原型链继承">2.原型链继承</h5>
+<p>将父类实例作为子类原型,复制父类的实例属性和原型方法。
+function Cat (){
+}
+Cat.prototype = new Animal();
+Cat.prototype.name = ‘cat’;
+// Test Code
+var cat = new Cat();
+console.log(cat.name);
+console.log(cat.sleep());
+console.log(cat.eat(‘mouse’));
+console.log(cat instanceof Animal);
+console.log(cat instanceof Cat);
+实例是子类的实例，也是父类的实例</p>
+
+<h5 id="3构造继承">3.构造继承</h5>
+<p>使用父类的构造函数来增强子类实例，等于复制父类的实例属性。
+function Cat(name){
+	Animal.call(this);
+	this.name = name || ‘Tom’;
+}
+// Test Code
+var cat = new Cat();
+console.log(cat.name);
+console.log(cat.sleep());
+console.log(cat.eat(‘mouse’));
+console.log(cat instanceof Animal);
+console.log(cat instanceof Cat);</p>
+
+<h5 id="4实例继承">4.实例继承</h5>
+<p>为父类实例添加新特性，作为子类实例返回。
+function Cat(name){
+	var instance = new Animal();
+	instance.name = name || ‘name’;
+	return instance;
+}
+// Test Code
+var cat = new Cat();
+console.log(cat.name);
+console.log(cat.sleep());
+console.log(cat.eat(‘mouse’));
+console.log(cat instanceof Animal);
+console.log(cat instanceof Cat);</p>
+
+<h5 id="5组合继承">5.组合继承</h5>
+<p>构造继承和原型继承的结合，缺点调用了两次父类构造函数，生成两份实例。
+function Cat(name){
+	Animal.call(this);
+	this.name = name || ‘Tom’;
+}
+Cat.prototype = new Animal();
+// Test Code
+var cat = new Cat();
+console.log(cat.name);
+console.log(cat.sleep());
+console.log(cat.eat(‘mouse’));
+console.log(cat instanceof Animal);
+console.log(cat instanceof Cat);</p>
+
+<h5 id="6寄生组合继承">6.寄生组合继承</h5>
+<p>通过寄生方式，砍掉父类的实例属性。在调用两次父类的构造的时候，就不会初始化两次实例方法/属性。
+function Cat(name){
+	Animal.call(this);
+	this.name = name || ‘Tom’;
+}
+(function (){
+	var Super = function(){};
+	Super.prototype = Animal.prototype;
+	Cat.prototype = new Super();
+})();
+// Test Code
+var cat = new Cat();
+console.log(cat.name);
+console.log(cat.sleep());
+console.log(cat.eat(‘mouse’));
+console.log(cat instanceof Animal);
+console.log(cat instanceof Cat);</p>
 
 	</div>
 </div>

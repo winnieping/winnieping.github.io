@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/styles/css/index.css">
+		<title>FuncCall</title>
+　　</head>
+　　<body>
+　　　　	<div class="container">
+	<div class="left">
+		<div class="content">
+			<div class="logo">
+				<img src="/../assets/logo.jpg" alt="logo">
+			</div>
+			<div class="motto">依你之萍</div>
+			<div class="navigation">
+				<span class="btn pink">
+					<a href="http://localhost:4000">
+						<img src="/../assets/home.png" alt="home">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="http://weibo.com/u/2627764953" target="_blank">
+						<img src="/../assets/weibo.png" alt="weibo">
+					</a>
+				</span>
+				<span class="btn pink">
+					<a href="https://github.com/winnieping" target="_blank">
+						<img src="/../assets/github.png" alt="github">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="/2016/02/01/list.html">
+						<img src="/../assets/note.png" alt="note">
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<h3 id="调用函数总结funccall四种">调用函数总结（FuncCall）四种</h3>
+<h3 id="1函数调用">1.函数调用</h3>
+<p>声明一个函数，并调用
+function foo（）{
+	alert（’hello world’）;
+}
+foo();
+表达式定义一个函数，并调用
+var func = function() {
+	alert（’hello world’）;
+}
+foo();
+注意：此时函数里的this关键字指全局变量</p>
+<h3 id="2方法调用">2.方法调用</h3>
+<p>定义一个函数和一个对象，将函数赋给对象的方法
+var func = function() {
+	alert(this);
+}
+var obj = {};
+obj.fn = func;
+下面调用：
+func();
+obj.fn();
+分别打印出不同的结果，因为函数调用，this指全局变量window，方法调用this指当前对象。</p>
+<h3 id="3构造器调用">3.构造器调用</h3>
+<p>定义构造函数，调用构造器创建对象
+var Person = function(){
+	this.name = ‘小乖’;
+	this.sayHello = function(){
+		alert(‘hi,我是’+this.name);
+	}
+}
+var p = new Person();
+p.sayHello();
+注意：构造函数的this就是当前变量。</p>
+<h3 id="4apply和call调用">4.apply和call调用。</h3>
+<p>apply()和call():调用一个对象的一个方法，以另一个对象替换当前对象。
+eg1: 
+function add(a,b){
+	alert(a+b);
+}
+function sub(a,b){
+	alert(a-b);
+}
+add.call(sub,3,1);
+函数的意思是用add来替换sub，add.call(sub,3,1) == add（3,1）
+此时this可以任意设定。</p>
+
+<p>eg2:
+function Animal(){
+	this.name = ‘Animal’;
+	this.showName = function(){
+		alert(this.name);
+	}
+}
+function Cat(){
+	this.name = ‘Cat’;
+}
+var animal = new Animal();
+var cat = new Cat();
+animal.showName.call(cat,’,’);
+函数的意思是把animal的方法放到cat上执行。
+eg3:</p>
+
+	</div>
+</div>
+
+
+　　</body>
+</html>

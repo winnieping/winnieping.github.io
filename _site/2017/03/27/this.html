@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/styles/css/index.css">
+		<title>this</title>
+　　</head>
+　　<body>
+　　　　	<div class="container">
+	<div class="left">
+		<div class="content">
+			<div class="logo">
+				<img src="/../assets/logo.jpg" alt="logo">
+			</div>
+			<div class="motto">依你之萍</div>
+			<div class="navigation">
+				<span class="btn pink">
+					<a href="http://localhost:4000">
+						<img src="/../assets/home.png" alt="home">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="http://weibo.com/u/2627764953" target="_blank">
+						<img src="/../assets/weibo.png" alt="weibo">
+					</a>
+				</span>
+				<span class="btn pink">
+					<a href="https://github.com/winnieping" target="_blank">
+						<img src="/../assets/github.png" alt="github">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="/2016/02/01/list.html">
+						<img src="/../assets/note.png" alt="note">
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<h3 id="1this关键字">1.this关键字</h3>
+<h5 id="11this永远指向一个对象拥有这个对象的值">1.1this永远指向一个对象，拥有这个对象的值。</h5>
+<h5 id="12在严格模式下在全局作用域和匿名函数中this指向window或者undifind">1.2在严格模式下，在全局作用域和匿名函数中，this指向window或者undifind</h5>
+<h5 id="13-当this在一个函数內出现的时候this指向调用这个函数的对象">1.3 当this在一个函数內出现的时候，this指向调用这个函数的对象。</h5>
+
+<h3 id="2全局范围内">2.全局范围内</h3>
+<p>console.log(this);
+this指向的是全局变量，浏览器环境下是window。（如果不存在全局变量，就是undefined）</p>
+
+<h3 id="3函数调用中">3.函数调用中</h3>
+<p>function foo（）{
+	console.log(this);
+}
+foo ();
+this指向的也是全局变量。</p>
+
+<h3 id="4对象方法调用">4.对象方法调用</h3>
+<p>var test = {
+		foo: function(){
+		console.log(this);
+	}
+}
+test.foo();
+this指向的是test对象，即调用者。</p>
+
+<h3 id="5-构造函数">5. 构造函数</h3>
+<p>function Foo（）{
+	console.log(this);
+}
+new Foo();
+this指向的是新创建的对象。</p>
+
+<h3 id="6显示设置this">6.显示设置this</h3>
+<p>function foo(a,b){
+	console.log(this);
+}
+var bar = {};
+foo.apply(bar,[1,2]);//this的指向是bar
+foo.call(1,2);//this的指向是number</p>
+
+<h3 id="7改变this指向的方法三种">7.改变this指向的方法—三种</h3>
+<p>函数原生的方法有call(), apply(), bind()。</p>
+<h5 id="71-call方法和apply方法">7.1 call方法和apply方法</h5>
+<p>区别：参数有区别，第一个参数用于改变this值，第一个以后的参数apply必须是数组。</p>
+<h5 id="72-bind方法">7.2 bind方法</h5>
+<p>与前两个函数的区别是，调用时不执行函数，只是改变this指向</p>
+
+
+	</div>
+</div>
+
+
+　　</body>
+</html>
