@@ -1,0 +1,51 @@
+---
+layout: post
+title: 'webpack（打包）'
+---
+### webpack（打包）
+#### 1. 多入口文件如何打包
+说明：__dirname：nodejs的全局变量，它指向当前执行脚本所在的目录。
+单入口情况：
+module.exports = {
+  entry:  __dirname + "/app/main.js",//入口文件
+  output: {
+    path: __dirname + "/public",//打包后的文件存放的地方
+    filename: "bundle.js"//打包后输出文件的文件名
+  },
+  	module: {
+        rules: [{
+            test: /\.css$/,
+            use: 'css-loader'
+        }]
+  	}
+}
+多入口情况：
+我们把第三方库，和组件，还有css分开来打包。这里需要用到
+ExtractTextWebpackPlugin（提取webpack插件	）
+module.exports = {
+  	entry: {
+		"vendor": ["react", "react-dom", "react-router", "react-router-redux", "react-redux", "redux","crypto-js", "fastclick", "quagga", "cropperjs"],
+		"app": "./js/index.js"
+    },// vendor 里是第三方库。
+	output: {
+		path: path.resolve(__dirname, 'public'),//node.js的内置path函数，将public解析为绝对路径
+		filename: "[name].js"//将entry对象分别输出各自name的js文件，分别为vendor.js,app.js
+	},
+	module: {
+	    rules: [
+	      {
+	        test: /\.css$/,
+	        use: ExtractTextPlugin.extract({
+	          fallback: "style-loader",
+	          use: "css-loader"
+	        })
+	      }
+	    ]
+	},
+	plugins: [
+        new ExtractTextPlugin('styles.css'),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor' // Specify the common bundle's name.
+        })
+	]
+}
