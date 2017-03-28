@@ -38,7 +38,9 @@
 		</div>
 	</div>
 	<div class="right">
-		<h1 id="跨域资源共享cors">跨域资源共享（cors)</h1>
+		<p>跨域的原理，就是受同源策略（域名，协议，端口）的影响，本域的js不能操作其它域的页面对象。 
+<!--break--></p>
+<h1 id="跨域资源共享cors">跨域资源共享（cors)</h1>
 
 <h3 id="1概述">1、概述</h3>
 <p>当一个资源请求一个其他域名或者端口的资源时，会产生跨域http请求。<br />
@@ -85,7 +87,7 @@ Access-Control-Allow-Credentials: true<br />
 <strong>**<em>特别注意<br />
 Access-Control-Allow-Origin<br />
 不能为</em></strong>*，需要设置为该请求网页一致的域名。</p>
-<h1 id="跨域的原理就是受同源策略域名协议端口的影响本域的js不能操作其它域的页面对象然后我们就要解决这个问题">跨域的原理，就是受同源策略（域名，协议，端口）的影响，本域的js不能操作其它域的页面对象，然后我们就要解决这个问题。</h1>
+<h3 id="跨域的原理就是受同源策略域名协议端口的影响本域的js不能操作其它域的页面对象然后我们就要解决这个问题">跨域的原理，就是受同源策略（域名，协议，端口）的影响，本域的js不能操作其它域的页面对象，然后我们就要解决这个问题。</h3>
 <h1 id="解决跨域方法之-服务器代理跨域-nodejs跨域">解决跨域方法之 服务器代理跨域 NODEJS跨域</h1>
 <p>服务器不受同源策略影响</p>
 <h3 id="1创建express应用程序">1.创建express应用程序</h3>
@@ -142,7 +144,7 @@ jsonp：一种使用JSON数据的方式</p>
 动态创建一个script标签，设置src，将script作为参数返回调用。<br />
 客户端代码：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script type="text/javascript"&gt;  
+<div class="highlighter-rouge"><pre class="highlight"><code>script type="text/javascript"  
     $.ajax({  
         url:"http://crossdomain.com/services.php",  
         dataType:'jsonp',  
@@ -155,7 +157,7 @@ jsonp：一种使用JSON数据的方式</p>
         },  
         timeout:3000  
     });  
-&lt;/script&gt; 
+/script
 
 </code></pre>
 </div>

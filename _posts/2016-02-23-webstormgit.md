@@ -2,6 +2,8 @@
 layout: post
 title: 'Webstorm上使用Git'
 ---
+webstorm使用git比控制台更方便，可视化操作。
+<!--break-->
 # Webstorm上使用Git
 ## 1.右键项目->git的选项卡   
 

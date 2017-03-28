@@ -38,7 +38,9 @@
 		</div>
 	</div>
 	<div class="right">
-		<h3 id="ajax介绍上">Ajax介绍（上）</h3>
+		<p>Ajax是操作HTTP的异步javascript和xml。实现网页异步更新。
+<!--break--></p>
+<h3 id="ajax介绍上">Ajax介绍（上）</h3>
 <h4 id="1简介">1、简介</h4>
 <p>Ajax是操作HTTP的异步javascript和xml。实现网页异步更新，即不需要重新渲染整个页面，只对网页部分更新。</p>
 <h4 id="2http事物">2、HTTP事物</h4>
@@ -67,11 +69,16 @@ DELETE：从服务器上删除命名资源。<br />
 HEAD：仅发送命名资源中的http首部
 PUT：将来自客户端的数据存储到一个服务器资源中去<br />
 TRACE：对报文进行追踪<br />
-OPTIONS：决定可以从服务器上执行哪些方法<br />
-其中GET和POST方法区别：<br />
-浏览器对URL有大小限制，chrome 8k firefox 7k ie 2k，get是将数据直接拼接在URL后端query部分，而浏览器是对URL有长度限制的，所以get有大小限制。post不限制大小。因为post是将数据放到请求的主体里，而主体是不限制大小的，所以post没有大小限制。get可以看到发送给服务器的数据，而post不会被看到，因为post把数据放到主体里，所以post较安全。</p>
+OPTIONS：决定可以从服务器上执行哪些方法</p>
+<h4 id="其中get和post方法区别">*其中GET和POST方法区别：</h4>
+<p>浏览器对URL有大小限制，chrome 8k firefox 7k ie 2k，get是将数据直接拼接在URL后端query部分，而浏览器是对URL有长度限制的，所以get有大小限制。post不限制大小。因为post是将数据放到请求的主体里，而主体是不限制大小的，所以post没有大小限制。get可以看到发送给服务器的数据，而post不会被看到，因为post把数据放到主体里，所以post较安全。</p>
 <h4 id="4http状态码">4、HTTP状态码</h4>
-<p>200 OK  文档正确返回 <br />
+<p>1<strong>：这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束<br />
+2</strong>：表示请求成功<br />
+3<strong>：表示重定向<br />
+4</strong>：表示客户端错误<br />
+5**：表示服务器端错误  <br />
+200 OK  文档正确返回 <br />
 301 Redirect 永久重定向。一直从其他地方去获取资源<br />
 302 Redirect 临时重定向。临时到其他地方去获取资源<br />
 303 see other、307 Temporary Redirect 将客服端重定向到一个负载不大的服务器上，用于负载均衡和服务器失联<br />

@@ -2,6 +2,8 @@
 layout: post
 title: 'Javascript闭包（Closure）'
 ---
+js的作用域只有两种，全局作用域和方法作用域，不存在块级作用域。
+<!--break-->
 # Javascript闭包（Closure）
 在理解闭包前，先清楚js的作用域只有两种，全局作用域和方法作用域。   
 \*或者说js没有静态变量，所以用闭包存储静态变量\*     

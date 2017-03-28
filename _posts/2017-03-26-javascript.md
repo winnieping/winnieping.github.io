@@ -2,6 +2,8 @@
 layout: post
 title: 'JavaScript'
 ---
+关于JavaScrip的基础知识。
+<!--break-->
 ### JavaScrip
 #### 1.定义变量的几种方法
 有 var let const 

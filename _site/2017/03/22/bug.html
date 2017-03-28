@@ -38,8 +38,10 @@
 		</div>
 	</div>
 	<div class="right">
-		<h3 id="1react-报错">1.react 报错</h3>
-<p>TypeError: Cannot assign to read only property ‘exports’ of object ‘#<object>’
+		<p>各种奇葩bug集锦，千万不要再遇到这样的。
+<!--break--></p>
+<h3 id="1react-报错">1.react 报错</h3>
+<p>“TypeError: Cannot assign to read only property ‘exports’ of object ‘#<object>’”
 找了半天，终于找到原因。You can mix require and export. You can‘t mix import and module.exports.
 提醒自己，以后一定要配对使用require和module.exports以及import和export default。
 而且貌似只有mac才报错，windows不会！奇葩！！！</object></p>
