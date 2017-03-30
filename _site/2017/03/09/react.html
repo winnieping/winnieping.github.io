@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/styles/css/index.css">
+		<title>React</title>
+　　</head>
+　　<body>
+　　　　	<div class="container">
+	<div class="left">
+		<div class="content">
+			<div class="logo">
+				<img src="/../assets/logo.jpg" alt="logo">
+			</div>
+			<div class="motto">依你之萍</div>
+			<div class="navigation">
+				<span class="btn pink">
+					<a href="http://localhost:4000">
+						<img src="/../assets/home.png" alt="home">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="http://weibo.com/u/2627764953" target="_blank">
+						<img src="/../assets/weibo.png" alt="weibo">
+					</a>
+				</span>
+				<span class="btn pink">
+					<a href="https://github.com/winnieping" target="_blank">
+						<img src="/../assets/github.png" alt="github">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="/2016/02/01/list.html">
+						<img src="/../assets/note.png" alt="note">
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<p>React并不是一个MVC框架，只是一个用于构建UI的javascript库。  React一般也叫React.js，起源于facebook，提倡用可重用的组件来表现随时间变化的数据。
+<!--break--></p>
+<h4 id="1react虚拟dom">1.React虚拟Dom</h4>
+<p>React操作的是虚拟dom，虚拟dom实际上就是js画出来的一个画面，存在于内存。直接操作这个画出来的东西，不需要进行dom渲染，所以无论多么频繁操作虚拟dom，速度都很快。 <br />
+当所有操作结束的时候，react才隐式的把虚拟dom渲染成真的dom，这个过程用户根本看不到。 <br />
+diff算法只是比对虚拟dom的不同，并不去关注真实dom到底什么样，只是在最后的时候渲染一个真实的dom。</p>
+<h4 id="2react生命周期">2.React生命周期</h4>
+<p><img src="/../assets/reactlifecycle.jpeg" alt="reactlifecycle" /></p>
+
+	</div>
+</div>
+
+
+　　</body>
+</html>
