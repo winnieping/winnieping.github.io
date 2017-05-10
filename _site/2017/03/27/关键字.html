@@ -40,55 +40,61 @@
 	<div class="right">
 		<p>this关键字，在全局范围，函数调用，构造函数，对象方法中指向各不相同，我们还可以手动改变this指向。
 <!--break--></p>
-<h3 id="1this关键字">1.this关键字</h3>
-<h3 id="11">1.1</h3>
-<h5 id="111this永远指向一个对象拥有这个对象的值">1.1.1this永远指向一个对象，拥有这个对象的值。</h5>
-<h5 id="112在严格模式下在全局作用域和匿名函数中this指向window或者undifind">1.1.2在严格模式下，在全局作用域和匿名函数中，this指向window或者undifind</h5>
-<h5 id="113-当this在一个函数內出现的时候this指向调用这个函数的对象">1.1.3 当this在一个函数內出现的时候，this指向调用这个函数的对象。</h5>
+<h3 id="一this关键字">一.this关键字</h3>
+<h3 id="1概念">1、概念</h3>
+<p>this永远指向一个对象，拥有这个对象的值。 <br />
+在严格模式下，在全局作用域和匿名函数中，this指向window或者undifind.<br />
+当this在一个函数內出现的时候，this指向调用这个函数的对象。</p>
 
-<h3 id="12全局范围内">1.2全局范围内</h3>
+<h3 id="2全局范围内">2、全局范围内</h3>
 <p>console.log(this);
 this指向的是全局变量，浏览器环境下是window。（如果不存在全局变量，就是undefined）</p>
 
-<h3 id="13函数调用中">1.3函数调用中</h3>
+<h3 id="3函数调用中">3、函数调用中</h3>
 <p>function foo（）{
 	console.log(this);
 }
 foo ();
-this指向的也是全局变量。</p>
+匿名函数调用this指向的也是全局变量。</p>
 
-<h3 id="14-对象方法调用">1.4 对象方法调用</h3>
-<p>var test = {
+<h3 id="4对象方法调用">4、对象方法调用</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>var test = {
 		foo: function(){
 		console.log(this);
 	}
 }
 test.foo();
-this指向的是test对象，即调用者。</p>
+</code></pre>
+</div>
+<p>this指向的是test对象，即调用者。</p>
 
-<h3 id="15构造函数">1.5构造函数</h3>
-<p>function Foo（）{
+<h3 id="5构造函数">5、构造函数</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>function Foo（）{
 	console.log(this);
 }
 new Foo();
-this指向的是新创建的对象。</p>
+</code></pre>
+</div>
+<p>this指向的是新创建的对象。</p>
 
-<h3 id="16-显示设置this">1.6 显示设置this</h3>
-<p>function foo(a,b){
+<h3 id="6显示设置this">6、显示设置this</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>function foo(a,b){
 	console.log(this);
 }
 var bar = {};
 foo.apply(bar,[1,2]);//this的指向是bar
-foo.call(1,2);//this的指向是number</p>
+foo.call(1,2);//this的指向是number
+</code></pre>
+</div>
+<h3 id="7改变this指向的方法三种">7、改变this指向的方法—三种</h3>
+<p>当我们将方法从对象中拿出来用，但是又希望this指向原来的对象时，需要用到以下函数。
+函数原生的方法有call(), apply(), bind()。
+1、call方法和apply方法
+区别：参数有区别，第一个参数用于改变this值，第一个以后的参数apply必须是数组。
+2、bind方法
+与前两个函数的区别是，调用时不执行函数，只是改变this指向</p>
 
-<h3 id="17-改变this指向的方法三种">1.7 改变this指向的方法—三种</h3>
-<p>函数原生的方法有call(), apply(), bind()。</p>
-<h5 id="71-call方法和apply方法">7.1 call方法和apply方法</h5>
-<p>区别：参数有区别，第一个参数用于改变this值，第一个以后的参数apply必须是数组。</p>
-<h5 id="72-bind方法">7.2 bind方法</h5>
-<p>与前两个函数的区别是，调用时不执行函数，只是改变this指向</p>
-
-<p>###2.return关键字</p>
+<h3 id="二return关键字">二.return关键字</h3>
 
 
 	</div>

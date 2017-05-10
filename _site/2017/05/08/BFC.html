@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/styles/css/index.css">
+		<title>BFC</title>
+　　</head>
+　　<body>
+　　　　	<div class="container">
+	<div class="left">
+		<div class="content">
+			<div class="logo">
+				<img src="/../assets/logo.jpg" alt="logo">
+			</div>
+			<div class="motto">依你之萍</div>
+			<div class="navigation">
+				<span class="btn pink">
+					<a href="http://localhost:4000">
+						<img src="/../assets/home.png" alt="home">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="http://weibo.com/u/2627764953" target="_blank">
+						<img src="/../assets/weibo.png" alt="weibo">
+					</a>
+				</span>
+				<span class="btn pink">
+					<a href="https://github.com/winnieping" target="_blank">
+						<img src="/../assets/github.png" alt="github">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="/2016/02/01/list.html">
+						<img src="/../assets/note.png" alt="note">
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<p>block formatting context:块级格式化上下文
+<!--break--></p>
+<h5 id="浮动元素和绝对定位元素非块级盒子的块级容器例如-inline-blocks-table-cells-和-table-captions以及overflow值不为visiable的块级盒子都会为他们的内容创建新的块级格式化上下文">浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的块级格式化上下文。</h5>
+<h3 id="讲bfc之前先讲清除浮动">讲BFC之前先讲清除浮动</h3>
+<h4 id="1为什么要清除浮动">1、为什么要清除浮动</h4>
+<p>浮动的元素会脱离文档流，会影响前后，父级元素的布局，所以为了解决这个问题，我们要清除浮动。</p>
+<h4 id="2clearboth">2、clear：both</h4>
+
+	</div>
+</div>
+
+
+　　</body>
+</html>
