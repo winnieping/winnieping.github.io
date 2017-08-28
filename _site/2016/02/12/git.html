@@ -79,6 +79,13 @@ git status 显示当前仓库状态
 <p>查看远程分支
 git remote -v</p>
 
+<h3 id="三git-rebase-和-git-merge">三、git rebase 和 git merge</h3>
+<p>区别：得到的分支结构不一样<br />
+rebase：（变基）把当前分支移动到master分支的后面<br />
+marge：（合并）将两个分支的历史连在了一起<br />
+使用rebase项目会非常简洁，缺点是假如出现冲突，可能会导致一连串的冲突。<br />
+解决办法，先用git rebase，出现冲突，git rebase –abort 放弃当前rebase操作，再git merge。</p>
+
 <p>　　　　</p>
 
 	</div>
