@@ -42,7 +42,7 @@
 <!--break--></p>
 <h3 id="ajax介绍下">Ajax介绍（下）</h3>
 <h4 id="1jquery-调用ajax">1、jQuery 调用Ajax</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>$.ajax({
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$.ajax({
 	type:'post',
 	url:'test.php',
 	data:'name = aaa &amp; age = 8',
@@ -54,8 +54,7 @@
 		alert('error');
 	},
 }) 
-</code></pre>
-</div>
+</code></pre></div></div>
 <h4 id="1ajax缓存">1、Ajax缓存</h4>
 <p>Ajax在发送的数据成功后，会把请求的URL和返回的响应结果保存在缓存内。当请求的地址和参数完全一样时，ajax直接从缓存中获取数据。<br />
 客户端对一些静态页面内容的请求变得更加快捷，提高了页面的响应速度，也节省了网络通信资源。 <br />
@@ -66,7 +65,7 @@
 
 <h4 id="2react-ajax框架">2、react Ajax框架</h4>
 <p>react有很多ajax框架，项目采用fetch</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>fetch(url, fetchOption).then(function (response) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fetch(url, fetchOption).then(function (response) {
 		return response.json();
 	}).then(function (json) {
 		try {
@@ -93,8 +92,7 @@
 			param: param
 		});
 	});
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>我们通过网络请求url资源，将服务器返回的Body解析，定义了以下方法解析并返回一个包含 response对象的promise对象，方法有<br />
 arrayBuffer()<br />
 blob()<br />

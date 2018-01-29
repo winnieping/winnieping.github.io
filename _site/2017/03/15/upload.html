@@ -42,7 +42,7 @@
 <!--break--></p>
 <h3 id="文件上传">文件上传</h3>
 <h3 id="1服务器搭建">1、服务器搭建</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>var fs = require('fs');
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var fs = require('fs');
 var express = require('express');
 var bodyParder = require('body-parser');
 var multer = require('multer');
@@ -87,10 +87,9 @@ app.post('/file', upload.single('file'), function (req, res, next) {
 app.listen(8000,function(){
     console.log('listen on port 8000');
 });
-</code></pre>
-</div>
+</code></pre></div></div>
 <h4 id="2使用webuploader">2、使用webuploader</h4>
-<div class="highlighter-rouge"><pre class="highlight"><code>//初始化Web Uploader
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//初始化Web Uploader
 		var uploader = WebUploader.create({
 
 		    // 选完文件后，是否自动上传。
@@ -119,8 +118,7 @@ app.listen(8000,function(){
 			console.log('ok!');
 		}
 		);
-</code></pre>
-</div>
+</code></pre></div></div>
 <h4 id="3遇到的问题">3、遇到的问题</h4>
 <h6 id="1-增加-accept-字段-导致chorme浏览器反应慢">1 增加 accept 字段 导致chorme浏览器反应慢</h6>
 <p>需要把<br />

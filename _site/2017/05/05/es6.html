@@ -52,8 +52,9 @@
   	return x + y;<br />
   }</p>
 <h3 id="3this作用域">3、this作用域</h3>
-<p>在箭头函数里面，this的作用域是词法作用域，由上下文确定。
-而js里面this的作用域是全局。</p>
+<p>在箭头函数里面，this的作用域取定义时外部的作用域，</p>
+
+<p>而不是像匿名函数那样指向全局变量。</p>
 
 <h3 id="拓展自执行匿名函数">拓展——自执行匿名函数</h3>
 <p>var f = function(){<strong>**}; //定义一个函数<br />
@@ -67,15 +68,14 @@ function(){</strong>**}();  //SyntaxError: Unexpected token <br />
 解析器在解析function关键字的时候，会将相应的代码解析成function表达式，而不是function声明。</p>
 <h4 id="3用法">3、用法：</h4>
 <p>用于闭包保存状态，eg见上文。利用这些被lock住的传入参数，自执行函数表达式可以有效地保存状态。</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>for (var i = 0; i &lt; 5; i++) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (var i = 0; i &lt; 5; i++) {
 	 (function(i){
 		setTimeout(function() {
 		    console.log(i);
 		  }, 1000 * i);
 	 })(i)
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>###</p>
 
 	</div>

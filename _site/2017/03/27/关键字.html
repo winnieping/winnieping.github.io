@@ -54,38 +54,38 @@ this指向的是全局变量，浏览器环境下是window。（如果不存在�
 <p>function foo（）{
 	console.log(this);
 }
-foo ();
-匿名函数调用this指向的也是全局变量。</p>
+foo ();</p>
+
+<p>this指向全局变量。</p>
+
+<p>匿名函数调用this指向的也是全局变量。</p>
 
 <h3 id="4对象方法调用">4、对象方法调用</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>var test = {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var test = {
 		foo: function(){
 		console.log(this);
 	}
 }
 test.foo();
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>this指向的是test对象，即调用者。</p>
 
 <h3 id="5构造函数">5、构造函数</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>function Foo（）{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function Foo（）{
 	console.log(this);
 }
 new Foo();
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>this指向的是新创建的对象。</p>
 
 <h3 id="6显示设置this">6、显示设置this</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>function foo(a,b){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function foo(a,b){
 	console.log(this);
 }
 var bar = {};
 foo.apply(bar,[1,2]);//this的指向是bar
 foo.call(1,2);//this的指向是number
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="7改变this指向的方法三种">7、改变this指向的方法—三种</h3>
 <p>当我们将方法从对象中拿出来用，但是又希望this指向原来的对象时，需要用到以下函数。
 函数原生的方法有call(), apply(), bind()。

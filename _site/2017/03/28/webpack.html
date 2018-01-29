@@ -44,7 +44,7 @@
 <h4 id="1-多入口文件如何打包">1. 多入口文件如何打包</h4>
 <p>说明：__dirname：nodejs的全局变量，它指向当前执行脚本所在的目录。<br />
 单入口情况：</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>module.exports = {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module.exports = {
   entry:  __dirname + "/app/main.js",//入口文件
   output: {
     path: __dirname + "/public",//打包后的文件存放的地方
@@ -57,12 +57,11 @@
         }]
   	}
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>多入口情况：<br />
 我们把第三方库，和组件，还有css分开来打包。这里需要用到<br />
 ExtractTextWebpackPlugin（提取webpack插件	）</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>module.exports = {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module.exports = {
   	entry: {
 		"vendor": ["react", "react-dom", "react-router", "react-router-redux", "react-redux", "redux","crypto-js", "fastclick", "quagga", "cropperjs"],
 		"app": "./js/index.js"
@@ -89,8 +88,7 @@ ExtractTextWebpackPlugin（提取webpack插件	）</p>
         })
 	]
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 	</div>
 </div>

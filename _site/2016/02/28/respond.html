@@ -43,14 +43,13 @@
 <h1 id="响应式布局">响应式布局</h1>
 <h3 id="目前项目中针对这一情况采取css3单位-rem--媒体查询-实现响应">目前项目中针对这一情况，采取css3单位 rem + 媒体查询 实现响应</h3>
 <h3 id="1rem-root-element">1、REM (root element)</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>html,body{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>html,body{
 	font-size:100px;
 }
 .text{
 	font-size:0.12rem;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>我们将html设为根元素，那么1rem = 根元素的size = 100px <br />
 所以 text的size是0.12*100px = 12px；
 此时当改变html的font-size，就可以改变rem的大小，所以我们不把html写死，不写成px。</p>
@@ -78,13 +77,12 @@
 @media (max-width: 1152px), (max-height: 600px) {…}</p>
 
 <h3 id="3同时要保证文字图片自适应">3、同时要保证文字，图片自适应</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>.img{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.img{
 	width:****rem;  
 	background: url(..／picture.png) center center no-repeat;  
 	background-size: 100% auto;  
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 	</div>

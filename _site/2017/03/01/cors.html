@@ -91,24 +91,22 @@ Access-Control-Allow-Origin<br />
 <h1 id="解决跨域方法之-服务器代理跨域-nodejs跨域">解决跨域方法之 服务器代理跨域 NODEJS跨域</h1>
 <p>服务器不受同源策略影响</p>
 <h3 id="1创建express应用程序">1.创建express应用程序</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>var express = require('express');  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var express = require('express');  
 var app = express();
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="2设置跨域访问相应标头">2.设置跨域访问相应标头</h3>
 <p>通过all方法设置所有请求都需要的头信息</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>app.all('*', function(req, res, next) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
     res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
     res.header("X-Powered-By", ' 3.2.1')
     res.header("Content-Type", "application/json;charset=utf-8");
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="3发送请求">3.发送请求</h3>
 <p>采取nodejs request模拟浏览器发起请求</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>app.all('*', function(req, res, next) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app.all('*', function(req, res, next) {
 	option = {
 	    url: 'http://KKKK' + req.originalUrl,
 	    method: req.method,
@@ -125,8 +123,7 @@ var app = express();
 	}
 }
 
-</code></pre>
-</div>
+</code></pre></div></div>
 <h3 id="4监听8081端口将8081端口的请求发送到-httpkkkk">4.监听8081端口，将8081端口的请求发送到 http://KKKK</h3>
 <p>app.listen(8081);</p>
 
@@ -144,7 +141,7 @@ jsonp：一种使用JSON数据的方式</p>
 动态创建一个script标签，设置src，将script作为参数返回调用。<br />
 客户端代码：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>script type="text/javascript"  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>script type="text/javascript"  
     $.ajax({  
         url:"http://crossdomain.com/services.php",  
         dataType:'jsonp',  
@@ -159,8 +156,7 @@ jsonp：一种使用JSON数据的方式</p>
     });  
 /script
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>var a = 1;
 console.log(a++);
@@ -181,7 +177,7 @@ console.log(++a);</p>
 修改文件如下</p>
 </blockquote>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>server {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
             listen       9999;
             server_name  localhost;
 
@@ -200,8 +196,7 @@ console.log(++a);</p>
             proxy_pass http://10.4.32.70:8080;
         }
     }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>然后重启nginx<br />
 sido nginx -s reload</p>

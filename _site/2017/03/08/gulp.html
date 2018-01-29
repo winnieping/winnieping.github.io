@@ -41,7 +41,7 @@
 		<p>gulp是一个nodejs的streaming构建工具，所谓的streaming大致意思就是把构建流程想成一个个链接的管道。
 <!--break--></p>
 <h3 id="1eg">1.eg</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>// less编译，使用方法: gulp lesswatch
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// less编译，使用方法: gulp lesswatch
 var gulp = require('gulp');
 var less = require('gulp-less');
 var cssmin = require('gulp-minify-css');
@@ -61,8 +61,7 @@ gulp.task('lesswatch', function () {
 });//注册一个名为lesswatch的gulp 任务。
 
 gulp.task('default', ['less', 'lesswatch']); //命令行启动gulp时，默认执行的任务。
-</code></pre>
-</div>
+</code></pre></div></div>
 
 	</div>
 </div>
