@@ -41,7 +41,7 @@
 		<p>js的作用域只有两种，全局作用域和方法作用域，不存在块级作用域。
 <!--break--></p>
 <h2 id="闭包">闭包</h2>
-<p><img src="/../assets/closures.jpg" /></p>
+<p><img src="http://localhost:4000/assets/closures.jpg" alt="closures.jpg" />;</p>
 <h3 id="引言">引言</h3>
 <blockquote>
   <p>在理解闭包前，要先了解作用域。
@@ -82,20 +82,20 @@ console.log(a); // 报错: a is not defined
 </code></pre></div></div>
 <ol>
   <li>代码拆分
-// 第一个部分
-   i++;
-   … 
-   i++; // 总共做10次<br />
-// 第二个部分
-   setTimeout(function() {
-      console.log(i);
-   }, 1000);
-   …
-   setTimeout(function() {
-      console.log(i);
-   }, 1000); // 总共做10次
-因为setTimeout是异步的，先执行的函数是i++，i 一直在变, 最终会变成10, 但是循环在执行setTimeout时, 其中的方法还没有真正运行, 等真正到时间执行时, i 的值已经变成 10 。
-所以最终输出的是10次10, 而不是想象中的 0, 1, 2, 3, 4, 5, 6, 7, 8, 9。</li>
+  // 第一个部分
+     i++;
+     … 
+     i++; // 总共做10次<br />
+  // 第二个部分
+     setTimeout(function() {
+        console.log(i);
+     }, 1000);
+     …
+     setTimeout(function() {
+        console.log(i);
+     }, 1000); // 总共做10次
+  因为setTimeout是异步的，先执行的函数是i++，i 一直在变, 最终会变成10, 但是循环在执行setTimeout时, 其中的方法还没有真正运行, 等真正到时间执行时, i 的值已经变成 10 。
+  所以最终输出的是10次10, 而不是想象中的 0, 1, 2, 3, 4, 5, 6, 7, 8, 9。</li>
 </ol>
 
 <p>2.闭包解决。
@@ -115,15 +115,19 @@ console.log(a); // 报错: a is not defined
 //第二个函数我们让a = arguments[0]，数字/字符类型的是复制值， 
 //而不是引用，return里面操作的变量已经变成a，和i没有关系了，不会因 i 的变化而变化。</p>
 
-<p>3.换成简洁的方式
-   for (var i = 0; i &lt; 10; i++) {
+<p>3.换成简洁的方式</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> for (var i = 0; i &lt; 10; i++) {
        (function(a) {
            setTimeout(function() {
                console.log(a);
            }, 1000);
        })(i); 
    }
-// 变量 i 的值在传递给functio时被复制给了a, 因此这个值就不会随外部变量而变化了。</p>
+
+</code></pre></div></div>
+
+<p>// 变量 i 的值在传递给functio时被复制给了a, 因此这个值就不会随外部变量而变化了。</p>
 
 <h3 id="闭包的this">闭包的this</h3>
 <p>this对象是运行时基于函数的执行环境绑定的。

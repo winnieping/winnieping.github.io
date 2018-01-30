@@ -40,29 +40,75 @@
 	<div class="right">
 		<p>React并不是一个MVC框架，只是一个用于构建UI的javascript库。  React一般也叫React.js，起源于facebook，提倡用可重用的组件来表现随时间变化的数据。
 <!--break--></p>
-<h4 id="1react虚拟dom">1.React虚拟Dom</h4>
-<p>React操作的是虚拟dom，虚拟dom实际上就是js画出来的一个画面，存在于内存。直接操作这个画出来的东西，不需要进行dom渲染，所以无论多么频繁操作虚拟dom，速度都很快。 <br />
-当所有操作结束的时候，react才隐式的把虚拟dom渲染成真的dom，这个过程用户根本看不到。 <br />
-diff算法只是比对虚拟dom的不同，并不去关注真实dom到底什么样，只是在最后的时候渲染一个真实的dom。</p>
-<h4 id="2通信">2、通信</h4>
-<p>react有Props和State，Props代表父组件分发的属性，State代表组件內部自行管理的状态，数据没有向上回溯的能力。<br />
-父子组件通信：通过调用父组件的回调函数。<br />
-组件间通信：redux管理。<br />
-所以对redux的理解：<br />
-action：等同于回调参数<br />
-reducer：等同于父级方法<br />
-store：等同于总状态<br />
-redux重点：<br />
-Provider：普通组件，可以作为顶层app的分发点，它只需要store属性就可以了。它会将state分发给所有被connect的组件，不管它在哪里，被嵌套多少层。<br />
-Connect：它是一个科里化函数，意思是先接受两个参数（数据绑定mapStateToProps和事件绑定mapDispatchToProps），再接受一个参数（将要绑定的组件本身）。</p>
+<h4 id="1react生命周期">1.React生命周期</h4>
+<p>组件挂载：</p>
 
-<p>mapStateToProps：构建好Redux系统的时候，它会被自动初始化，但是你的React组件并不知道它的存在，因此你需要分拣出你需要的Redux状态，所以你需要绑定一个函数，它的参数是state，简单返回你关心的几个值。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>constuctor()
+componentWillMount()
+render()
+componentDidMount()
+</code></pre></div></div>
 
-<p>mapDispatchToProps：声明好的action作为回调，也可以被注入到组件里，就是通过这个函数，它的参数是dispatch，通过redux的辅助方法bindActionCreator绑定所有action以及参数的dispatch，就可以作为属性在组件里面作为函数简单使用了，不需要手动dispatch。这个mapDispatchToProps是可选的，如果不传这个参数redux会简单把dispatch作为属性注入给组件，可以手动当做store.dispatch使用。这也是为什么要科里化的原因。</p>
+<p>组件更新：</p>
 
-<h4 id="3react生命周期">3.React生命周期</h4>
-<p><img src="/../assets/reactlifecycle.jpeg" alt="reactlifecycle" /></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>componentWillReciveProps()
+componentShouldUpdate()
+componentWillUpdate()
+render()
+componentDidUpdate()
+</code></pre></div></div>
 
+<p>组件卸载:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>componentWillUnMount()
+</code></pre></div></div>
+
+<h4 id="2react虚拟dom">2.React虚拟Dom</h4>
+
+<p>React render()执行后得到什么？？？得到的并不是真正的Dom节点，而是虚拟Dom。</p>
+
+<p>Virtual DOM + Batching（批处理）+ Diff（算法）</p>
+
+<p>Virtual DOM</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>虚拟dom实际上就是js画出来的一个画面，存在于内存。直接操作这个画出来的东西，不需要进行dom渲染，所以无论多么频繁操作虚拟dom，速度都很快。
+</code></pre></div></div>
+
+<p>Batching</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>将所有的DOM操作搜集起来，一次提交给真实DOM。 
+</code></pre></div></div>
+
+<p>Diff（算法）</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>比较DOM虚拟节点树
+1、节点类型不同	销毁节点，插入新节点
+2、节点类型相同，属性不同	（对属性进行重设）
+	在同一层	添加Key，插入或删除新节点
+	不在同一层	销毁并重建
+</code></pre></div></div>
+
+<p>总结：diff算法对比之前的DOM树，得出变化</p>
+
+<p>​			    batching将变化提交给真实DOM</p>
+
+<h4 id="3路由">3、路由</h4>
+
+<p>React是单页面开发，使用React-Router 实现路由跳转</p>
+
+<p>hashHistory 和 browserHistory</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashHistory 	url带#
+browserHistory 	需要server 端配置
+</code></pre></div></div>
+
+<h3 id="4react性能">4、React性能</h3>
+
+<p>一、减少render() 执行次数</p>
+
+<p>比如父组件更新导致子组件不必要的更新，在shouldComponentUpdate（）中操作。</p>
+
+<p>二、使用immutable.js</p>
 
 	</div>
 </div>

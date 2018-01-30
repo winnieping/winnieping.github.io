@@ -38,14 +38,47 @@
 		</div>
 	</div>
 	<div class="right">
-		<p>1、页面有分页：先把分页考虑进去， 页码清零必做（初始查询页码清零，修改查询条件页码清零）</p>
+		<p>修改bug遇到的吐血集锦</p>
 
-<p>2、时间日期为阶段型，对开始时间和结束时间要做限制，对时间未选充分需要做限制（比如只选开始时间和只选结束时间情况）</p>
+<!--break-->
 
-<p>3、省市区联动：重新选择要对二三级信息清零</p>
+<h5 id="1分页">1、分页</h5>
 
-<p>4、下拉框都要做全部选项（不然切换不回去），且都要做初始选项
-5、</p>
+<p>先把分页考虑进去， 页码清零必做（初始查询页码清零，修改查询条件页码清零）</p>
+
+<h5 id="2时间日期为阶段型">2、时间日期为阶段型</h5>
+
+<p>对开始时间和结束时间要做限制，对时间未选充分需要做限制（比如只选开始时间和只选结束时间情况）</p>
+
+<h5 id="3省市区联动">3、省市区联动</h5>
+
+<p>重新选择要对二三级信息清零</p>
+
+<h5 id="4下拉框">4、下拉框</h5>
+
+<p>下拉框都要做全部选项（不然切换不回去），且都要做初始选项</p>
+
+<h5 id="5commonjs规范">5、commonJs规范</h5>
+
+<p>require+module.exports  import +export default</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>react 报错
+
+"TypeError: Cannot assign to read only property 'exports' of object '#&lt;Object&gt;'"
+
+找了半天，终于找到原因。    
+
+You can mix require and export. You can‘t mix import and module.exports.  
+
+提醒自己，以后一定要配对使用require和module.exports以及import和export default。
+
+而且貌似只有mac报错！   
+
+原因：node的module遵循CommonJs规范，使用的是Common的module.export和自己定义的require命令，
+但是：es6的module没有采用CommonJs，定义了模块的export和import命令。
+
+</code></pre></div></div>
+
 
 	</div>
 </div>

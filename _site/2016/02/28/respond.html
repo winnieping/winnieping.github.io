@@ -41,7 +41,8 @@
 		<p>响应式布局的概念是为了让网页在不同分辨率的屏幕上都有较好的展示效果，即需要应用不同的css样式。
 <!--break--></p>
 <h1 id="响应式布局">响应式布局</h1>
-<h3 id="目前项目中针对这一情况采取css3单位-rem--媒体查询-实现响应">目前项目中针对这一情况，采取css3单位 rem + 媒体查询 实现响应</h3>
+<p>目前项目中针对这一情况，采取css3单位 rem + 媒体查询 实现响应</p>
+
 <h3 id="1rem-root-element">1、REM (root element)</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>html,body{
 	font-size:100px;
@@ -50,21 +51,19 @@
 	font-size:0.12rem;
 }
 </code></pre></div></div>
-<p>我们将html设为根元素，那么1rem = 根元素的size = 100px <br />
-所以 text的size是0.12*100px = 12px；
-此时当改变html的font-size，就可以改变rem的大小，所以我们不把html写死，不写成px。</p>
+<p>rem相对于根元素大小，html的font-size：100px，那么1rem =  100px  ；</p>
 
-<p>那么我们写成什么呢？写成百分比</p>
+<p>所以 text的size是0.12*100px = 12px；</p>
 
-<p>从遥远的 IE6 到版本帝 Chrome，他们都约好了，根元素默认的 font-size 都是 1rem = 16px</p>
+<p>此时当改变html的font-size，就可以改变rem的大小，所以我们不把html写死，不写成px。</p>
 
-<p>当我们想得到 1rem = 100px 时，比例m是 16px * m = 100px m = 6.25 = 625%；</p>
+<p>当设计稿是1366*768时，我们按这个标准得到1rem = 100px；</p>
 
-<p>即font-size:625%;</p>
+<p>那么当浏览器屏幕分辨率变为1920*1080时，100/1366 = x/1920；</p>
 
-<p>此时，不用管设计稿的大小，你的1rem 就是100px；
-然后我们只需在window初始化的时候，改变font-size的大小，
-或者在浏览器窗口每次调整后，监听resize事件，重置font-size大小，实现响应式布局。</p>
+<p>x = 1920/13.66；所以，percentage（百分比） = window.innerWidth/13.66;</p>
+
+<p>在浏览器窗口每次调整后，监听resize事件，重置font-size = percentage，实现响应式布局。</p>
 
 <h3 id="2媒体查询">2、媒体查询</h3>
 <p>浏览器的可视区域宽度小于400px:<br />
