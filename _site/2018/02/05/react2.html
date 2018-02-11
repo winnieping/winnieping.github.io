@@ -1,0 +1,104 @@
+<p>React并不是一个MVC框架，只是一个用于构建UI的javascript库。  React一般也叫React.js，起源于facebook，提倡用可重用的组件来表现随时间变化的数据。
+<!--break--></p>
+
+<h4 id="1高阶函数">1、高阶函数</h4>
+
+<p>1、定义</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Concretely, a higher-order component is a function that takes a component and returns a new component.
+</code></pre></div></div>
+
+<p>具体来说，高阶组件就是一个函数，且该函数接受一个组件作为参数，并返回一个新的组件。
+2、example</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>高阶组件
+import React, { Component } from 'react';
+
+const DropHoc = WrappedComponent =&gt; {
+
+    return class extends Component {
+        render() {
+            return &lt;WrappedComponent /&gt;
+        }
+    };
+};
+export default DropHoc;
+
+被包裹组件
+import React from 'react';
+import DropHoc from '../../common/DropHOC';
+class StatInfo extend React.component{
+  constructor(props){
+  super(props);
+    this.state = {
+      
+    }
+  }
+  render(){
+    return  (
+    	&lt;div className="stationHome"&gt;&lt;/div&gt;
+    )
+  }
+}
+export  default DropHoc(StatInfo);
+</code></pre></div></div>
+
+<p>3、绝大多数的使用场景-react库，比如redux</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Redux
+</code></pre></div></div>
+
+<h4 id="2context">2、context</h4>
+
+<p>1、	定义：一组属性的集合，并被_隐式_地传递给后代组件。</p>
+
+<p>​     	props：也是传递属性的集合</p>
+
+<p>​	区别：不需要层层传递的空间穿越通道 - Context</p>
+
+<p>2、用法</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1、要传递context的组件的childContextTypes必须声明
+2、通过getChildContext指定子组件能调用的值
+3、指定子组件的contextTypes
+
+//父组件
+class Father extends React.Component( {
+	constructor(){
+      this.state = {
+        userConfig:{
+          userName:'xiaohua'
+        }
+      }
+	}
+    childContextTypes: {
+       userConfig: PropTypes.object.isRequired    // childContextTypes必须声明  
+    } ,
+    getChildContext(){
+        return {
+            userConfig: userConfig
+        }
+    } ,
+    render(){
+        return ( &lt;div className="app_main"&gt;
+                    &lt;Child&gt;&lt;/Child&gt;
+                &lt;/div&gt; ) ;
+    }
+} ) ;
+
+//子组件
+class Child extends React.Component {
+   static contextTypes = {
+        userConfig: PropTypes.object.isRequired    // 子组件的contextTypes 
+   }
+   render(){
+      console.log( this.context.userConfig )    // 拿到了对象
+      return ( &lt;div&gt;child&lt;/div&gt; ) ;
+   }
+}
+</code></pre></div></div>
+
+<p>版本注意：</p>
+
+<p>从 React v15.5 开始 ，<code class="highlighter-rouge">React.PropTypes</code> 助手函数已被弃用，我们建议使用 <a href="https://www.npmjs.com/package/prop-types"><code class="highlighter-rouge">prop-types</code> 库</a> 来定义<code class="highlighter-rouge">contextTypes</code>。</p>
+
