@@ -96,6 +96,27 @@ componentDidUpdate()
 
 <p>React是单页面开发，使用React-Router 实现路由跳转</p>
 
+<p>我们知道window对象的location对象有以下属性：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Location{
+    hash:""
+    host:"localhost:4000"
+    hostname:"localhost"
+    href:"http://localhost:4000/2016/02/01/list.html"
+    origin:"http://localhost:4000"
+    pathname:"/2016/02/01/list.html"
+    port:"4000"
+    protocol:"http:"
+    search:""
+}
+</code></pre></div></div>
+
+<p>其中hash的定义是url改变该部分不会影响页面重新加载的部分，所以我们知道可以用hash来实现单页面的路由跳转。</p>
+
+<p>要实现无刷新跳转还可以用 HTML5 的 History API</p>
+
+<p>总结以上两种方法就是react实现路由跳转的两种方式：</p>
+
 <p>hashHistory 和 browserHistory</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashHistory 	url带#
