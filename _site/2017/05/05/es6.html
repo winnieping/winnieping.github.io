@@ -38,23 +38,116 @@
 		</div>
 	</div>
 	<div class="right">
-		<!--break-->
-<p>箭头函数 
-箭头函数相当于匿名函数</p>
-<h3 id="1单个参数">1、单个参数</h3>
+		<p>关于es6的一些新特性</p>
+
+<!--break-->
+
+<p>#####一、箭头函数</p>
+
+<p>箭头函数相当于匿名函数</p>
+
+<p>1、单个参数</p>
+
 <p>x =&gt; x + x   <br />
 相当于 function　(x) {<br />
   return x + x;<br />
   }</p>
-<h3 id="2多个参数">2、多个参数</h3>
+
+<p>2、多个参数</p>
+
 <p>(x,y) =&gt; x + y<br />
 相当于 function　(x,y) {<br />
   	return x + y;<br />
   }</p>
-<h3 id="3this作用域">3、this作用域</h3>
+
+<p>3、this作用域</p>
+
 <p>在箭头函数里面，this的作用域取定义时外部的作用域，</p>
 
 <p>而不是像匿名函数那样指向全局变量。</p>
+
+<h5 id="二let-const">二、let const</h5>
+
+<p>es6规定了新的变量定义，let和const</p>
+
+<p>let：声明的变量拥有块级作用域
+​	重复定义会抛错误
+​	有暂时死区，不会被提升</p>
+
+<p>const 定义常量</p>
+
+<h5 id="三模版字面量">三、模版字面量</h5>
+
+<p>是允许嵌入表达式的字符串字面量。
+1、更优雅的拼接字符串
+2、用$(expression)表示变量或方法，并且可以写js运算表达式
+3、支持换行符</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let x = 1,y = 2;
+console.log(`${x+y*2}`);
+</code></pre></div></div>
+
+<h5 id="四promise">四、promise</h5>
+
+<p>console.dir(Promise)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var myObject = {
+  name:'jaja',
+  age:'12',
+  sayName:function (){
+    console.log('my name is'+ name);
+  }
+}
+console.dir(myObject)
+console.dir		//打印出对象的属性和方法
+</code></pre></div></div>
+
+<p>Promise 是一个构造函数，调用它可以生成一个promise对象。
+eg：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var p = new Promise(function(resolve, reject){
+    //做一些异步操作
+    setTimeout(function(){
+        console.log('执行完成');
+        resolve('随便什么数据');
+    }, 2000);
+});
+</code></pre></div></div>
+
+<p>Promise接受一个函数作为参数，并传入resove，reject分别表示异步操作执行成功后的回调函数和异步操作失败后的回调函数。
+在上面的栗子中，我们异步操作后设置了resove（‘随便什么数据’）函数。并且我们在这里只是new一个对象，并没有执行它，但是我们传进去的函数就已经在执行了。所以我们一般是把对象包在函数里，并在需要的时候运行它。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function runAsync(){
+    var p = new Promise(function(resolve, reject){
+        //做一些异步操作
+        setTimeout(function(){
+            console.log('执行完成');
+            resolve('随便什么数据');
+        }, 2000);
+    });
+    return p;            
+}
+runAsync()
+</code></pre></div></div>
+
+<p>在函数执行后返回p对象。因为返回了对象所以继续调用then方法。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>runAsync().then(function(data){
+    console.log(data);
+    //后面可以用传过来的数据做些其他操作
+    //......
+});
+</code></pre></div></div>
+
+<p><strong>Promise</strong>对象还有all方法，用于提供并行执行异步操作的能力。在所有异步操作执行完成后才执行回调。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Promise.all([promise1, promise2, promise3]).then(function(values) {
+  console.log(values);
+});
+
+</code></pre></div></div>
+
+<p>promise1, promise2, promise3是并行执行的异步回调。</p>
 
 <h3 id="拓展自执行匿名函数">拓展——自执行匿名函数</h3>
 <p>var f = function(){<strong>**}; //定义一个函数<br />

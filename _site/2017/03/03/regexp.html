@@ -39,23 +39,30 @@
 	</div>
 	<div class="right">
 		<p>正则表达式：regular expression <br />
-用途：查找特定的文本，或者查找并替换特定的文本
 <!--break--></p>
-<h1 id="正则表达式regexp">正则表达式(RegExp）</h1>
+
+<h1 id="正则表达式regexp正确的规则的表达式">正则表达式(RegExp）（正确的规则的表达式）</h1>
+<p>###一、作用</p>
+
+<p>1⃣️查找特定的文本，2⃣️查找并替换特定的文本</p>
+
+<p>###二、语法</p>
+
 <h3 id="1特殊字符">1、特殊字符</h3>
-<p><img src="/../assets/regexp_01.png" alt="note" /></p>
+
+<p><img src="../assets/regexp_01.png" alt="note" /></p>
 
 <h3 id="2限定符">2、限定符</h3>
-<p><img src="/../assets/regexp_02.png" alt="note" /></p>
+<p><img src="../assets/regexp_02.png" alt="note" /></p>
 
 <h3 id="3非打印字符">3、非打印字符</h3>
-<p><img src="/../assets/regexp_03.png" alt="note" /></p>
+<p><img src="../assets/regexp_03.png" alt="note" /></p>
 
 <h3 id="4定位符">4、定位符</h3>
-<p><img src="/../assets/regexp_04.png" alt="note" /></p>
+<p><img src="../assets/regexp_04.png" alt="note" /></p>
 
 <h3 id="5其他">5、其他</h3>
-<p><img src="/../assets/regexp_05.png" alt="note" /></p>
+<p><img src="../assets/regexp_05.png" alt="note" /></p>
 
 <h3 id="6匹配规则示例">6、匹配规则示例</h3>
 <h5 id="61-开头结尾">6.1 开头结尾</h5>
@@ -76,7 +83,74 @@
 [^\"\'] 	匹配双引号(")和单引号(')之外的所有字符
 </code></pre></div></div>
 <h5 id="63-确定重复出现">6.3 确定重复出现</h5>
-<p><img src="/../assets/regexp_06.png" alt="note" /></p>
+<p><img src="../assets/regexp_06.png" alt="note" /></p>
+
+<h3 id="三正则对象">三、正则对象</h3>
+
+<p>####1、创建一个正则对象</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var reg = new RegExp(pattern,modifiers);
+or
+var reg = /pattern/modifiers;
+
+pattern（模式） 描述了表达式的模式
+modifiers(修饰符) 用于指定全局匹配、区分大小写的匹配和多行匹配
+</code></pre></div></div>
+
+<h4 id="2正则对象方法">2、正则对象方法</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>compile（）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>exec（）</td>
+      <td>检索，返回找到的值</td>
+    </tr>
+    <tr>
+      <td>test（）</td>
+      <td>检索，返回true或false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="3支持正则表达式的string对象方法">3、支持正则表达式的String对象方法</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>search（）</td>
+      <td>返回找到的字符串位置，没有则返回-1</td>
+    </tr>
+    <tr>
+      <td>match（）</td>
+      <td>返回匹配结果的数组，没有则返回null</td>
+    </tr>
+    <tr>
+      <td>replace（）</td>
+      <td>替换与正则表达式匹配</td>
+    </tr>
+    <tr>
+      <td>split（）</td>
+      <td>把字符串分割为字符串数组</td>
+    </tr>
+  </tbody>
+</table>
+
 
 	</div>
 </div>

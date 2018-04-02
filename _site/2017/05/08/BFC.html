@@ -49,11 +49,23 @@
 
 <p>overflow:hidden</p>
 
-<h4 id="3实际案例">3、实际案例</h4>
+<h4 id="3实际用法">3、实际用法</h4>
 
 <p>比如当两个div，一个正常一个浮动的时候，浮动的可能会叠加在正常的里面，因为浮动脱离文档流。这时候加上overflow：hidden，就可以实现布局了</p>
 
 <p>再比如由于子节点的浮动导致脱离了父节点文档，所以父div没有被撑开，给父div加上overflow：hidden，就可以被撑开了。</p>
+
+<h4 id="4clearfixafter">4、clearfix:after</h4>
+
+<p>使用伪元素在元素之后插入内容，并利用伪元素来清除浮动。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.clearfix:after{
+    content: '';
+    display: block;
+    clear: both
+}
+</code></pre></div></div>
+
 
 	</div>
 </div>

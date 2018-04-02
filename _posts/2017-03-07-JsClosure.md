@@ -65,7 +65,6 @@ for(var i = 0; i < 10; i++) {
        setTimeout(fn(i), 1000);
    }
    function fn() { 
-       
        var a = arguments[0];
        return function() {
            console.log(a); 
@@ -86,12 +85,36 @@ for(var i = 0; i < 10; i++) {
            }, 1000);
        })(i); 
    }
+```
 
+// 变量 i 的值在传递给functio时被复制给了a, 因此这个值就不会随外部变量而变化了。  
+
+4.第三种解决方式
+
+```
+function outPut(i){
+  setTimeout(function() {
+        console.log(i);
+    }, 1000);
+}
+for(var i = 0; i < 10; i++) {
+    outPut(i)
+}
+```
+
+5.第四种解决方式
+
+采用let代替var，因为let具有独立作用域，在这个例子中，相当于每次循环都会把i重新声明一次并初始化一次。
+
+```
+for(let i = 0; i < 10; i++) {
+    setTimeout(function() {
+        console.log(i);
+    }, 1000);
+}
 ```
 
 
-
-// 变量 i 的值在传递给functio时被复制给了a, 因此这个值就不会随外部变量而变化了。  
 
 ### 闭包的this
 this对象是运行时基于函数的执行环境绑定的。
