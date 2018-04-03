@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/styles/css/index.css">
+		<title>网页编码</title>
+　　</head>
+　　<body>
+　　　　	<div class="container">
+	<div class="left">
+		<div class="content">
+			<div class="logo">
+				<img src="/../assets/logo.jpg" alt="logo">
+			</div>
+			<div class="motto">依你之萍</div>
+			<div class="navigation">
+				<span class="btn pink">
+					<a href="http://localhost:4000">
+						<img src="/../assets/home.png" alt="home">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="http://weibo.com/u/2627764953" target="_blank">
+						<img src="/../assets/weibo.png" alt="weibo">
+					</a>
+				</span>
+				<span class="btn pink">
+					<a href="https://github.com/winnieping" target="_blank">
+						<img src="/../assets/github.png" alt="github">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="/2016/02/01/list.html">
+						<img src="/../assets/note.png" alt="note">
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<p>网页在传输数据的过程中资源会被编码压缩，然后通过http头注明相应参数，浏览器收到后进行解压解码，实现正常显示。
+比如我们常常看到Content-Type：application/json，charset = UTF-8 || Content-Type: text/html || Content-Type: image/png （在内容格式中注明编码格式）
+比较常见的编码格式还有 GBK、GB2312</p>
+
+<h5 id="一讲一个故事">一、讲一个故事</h5>
+
+<p>很久很久以前，有一群人美国人，他们决定用8个可以开合的晶体管来组合成不同的状态，以表示世界上的万物，他们把这称为”字节”。再后来，他们又做了一些可以处理这些字节的机器，机器开动了，可以用字节来组合出很多状态，状态开始变来变去，他们就把这机器称为”计算机”。
+<strong>注意8个开合的晶体管一共有2的8次方 = 256种状态</strong></p>
+
+<p>1、美国人把控制码和大小写字母，数字，空格，标点符号分别用1-127号状态来表示，这就是 <strong>ANSI</strong> 的”<strong>Ascii</strong>”编码。</p>
+
+<p>2、后来计算机发展越来越快，世界各国为了保存他们的文字，他们决定采用127后的状态码来表示这些新的字母、符号，一直用到了最后一个状态255，从128-255的字符集被称为<strong>扩展字符集</strong>。</p>
+
+<p>3、等到中国人得到计算机时，已经没有可以利用的字节状态来表示汉字了，而且我们有6000多常用汉字需要保存。于是中国人把127号以后的符号全部取消掉，并且规定：一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，前面的一个字节（他称之为高字节）从0xA1用到 0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。在这些编码里，我们还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。
+<strong>这种汉字方案叫做</strong> “GB2312″。<strong>GB2312</strong> 是对 <strong>ASCII</strong> 的中文扩展。</p>
+
+<p>4、但是中国的汉字太多了，后来还是不够用，于是干脆不再要求低字节一定是127号之后的内码，只要第一个字节是大于127就固定表示这是一个汉字的开始，不管后面跟的是不是 扩展字符集里的内容。结果扩展之后的编码方案被称为 <strong>GBK</strong> 标准，GBK 包括了 GB2312 的所有内容，同时又增加了近20000个新的汉字（包括繁体字）和符号。</p>
+
+<p>5、后来少数民族也要用电脑了，于是我们再扩展，又加了几千个新的少数民族的字，<strong>GBK</strong> 扩成了 <strong>GB18030</strong>。</p>
+
+<p>6、由于当时各国都有一套自己的编码标准，谁也不支持谁的编码，于是有一个ISO的国际化组织决定解决这个问题，他们废掉所有的地区性编码，重做一套包括地球上所有文化、所有字母和符号的编码。这个就叫做<strong>UNICODE</strong>。
+UNICODE 开始制订时，计算机的存储器容量极大地发展了，空间再也不成为问题了。于是 ISO 就直接规定必须用两个字节，也就是16位来统一表示所有的字符，对于 ascii 里的那些”半角”字符，UNICODE 包持其原编码不变，只是将其长度由原来的8位扩展为16位，而其他文化和语言的字符则全部重新统一编码。由于”半角”英文符号只需要用到低8位，所以其高 8位永远是0，因此这种大气的方案在保存英文文本时会多浪费一倍的空间。</p>
+
+<p>7、UNICODE 来到时，一起到来的还有计算机网络的兴起，UNICODE 如何在网络上传输也是一个必须考虑的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了，顾名思义，<strong>UTF8</strong> 就是每次8个位传输数据，而** UTF16** 就是每次16个位，只不过为了传输时的可靠性，从UNICODE到 UTF时并不是直接的对应，而是要过一些算法和规则来转换。</p>
+
+<h5 id="二课代表">二、课代表：</h5>
+
+<ul>
+  <li>中国人民通过对 ASCII 编码的中文扩充改造，产生了 GB2312 编码，可以表示6000多个常用汉字。</li>
+  <li>汉字实在是太多了，包括繁体和各种字符，于是产生了 GBK 编码，它包括了 GB2312 中的编码，同时扩充了很多。</li>
+  <li>中国是个多民族国家，各个民族几乎都有自己独立的语言系统，为了表示那些字符，继续把 GBK 编码扩充为 GB18030 编码。</li>
+  <li>每个国家都像中国一样，把自己的语言编码，于是出现了各种各样的编码，如果你不安装相应的编码，就无法解释相应编码想表达的内容。</li>
+  <li>终于，有个叫 ISO 的组织看不下去了。他们一起创造了一种编码 UNICODE ，这种编码非常大，大到可以容纳世界上任何一个文字和标志。所以只要电脑上有 UNICODE 这种编码系统，无论是全球哪种文字，只需要保存文件的时候，保存成 UNICODE 编码就可以被其他电脑正常解释。</li>
+  <li>UNICODE 在网络传输中，出现了两个标准 UTF-8 和 UTF-16，分别每次传输 8个位和 16个位。
+于是就会有人产生疑问，UTF-8 既然能保存那么多文字、符号，为什么国内还有这么多使用 GBK 等编码的人？因为 UTF-8 等编码体积比较大，占电脑空间比较多，如果面向的使用人群绝大部分都是中国人，用 GBK 等编码也可以。但是目前的电脑来看，硬盘都是白菜价，电脑性能也已经足够无视这点性能的消耗了。所以推荐所有的网页使用统一编码：<strong>UTF-8</strong>。</li>
+</ul>
+
+
+	</div>
+</div>
+
+
+　　</body>
+</html>
