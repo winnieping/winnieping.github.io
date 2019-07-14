@@ -141,6 +141,24 @@ browserHistory 	需要server 端配置
 <p>具体来说，高阶组件就是一个函数，且该函数接受一个组件作为参数，并返回一个新的组件。
 2、eg：Redux</p>
 
+<p>####6、setState实现机制</p>
+
+<p>1、组件每次调用都是调用的React根组件的原型方法setState。</p>
+
+<p>2、react 框架为了提高性能，会对 state 的更新进行收集、合并、再进行一次批量的状态更新
+3、setState 会合并更新，可能会造成状态更新的丢失</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>handleClick = () =&gt; { this.setState({demo: this.state.demo + 1}); this.setState({demo: this.state.demo + 1}); } //click 之后 demo 为2而不是3
+</code></pre></div></div>
+
+<p>综上：在同一代码块中不要多次调用 this.setState 方法</p>
+
+<p>4、setState会依次引发组件更新生命周期函数调用。</p>
+
+<p>5、解决setState不会立即更新的办法</p>
+
+<p>传入一个方法，返回你对state处理后的对象。而不是直接传入一个对象</p>
+
 	</div>
 </div>
 

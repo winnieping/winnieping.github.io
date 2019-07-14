@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container"> 
+		<div class="children"></div>
+	</div>
+</body>
+<style type="text/css">
+	/* table布局 */
+	.container{
+		background: #333333;
+		width: 600px;
+		height: 600px;
+		display:table; 
+	
+	}
+	.children{
+		background: pink;
+		width: 200px;
+		height: 200px;
+		display:table-cell;
+            text-align:center;
+            vertical-align:middle;
+	}
+	/* 定位布局 大小不固定 */
+	.container{
+		position:relative;
+		background: #333333;
+		width: 600px;
+		height: 600px;
+	}
+	.children{
+		position: absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+		background: pink;
+		width: 200px;
+		height: 200px;
+	}
+	/* flex */
+	.container{
+		display:flex;justify-content:center;align-items:center;
+		background: #333333;
+		width: 600px;
+		height: 600px;
+	}
+	.children{
+		background: pink;
+		width: 200px;
+		height: 200px;
+	}
+</style>
+</html>

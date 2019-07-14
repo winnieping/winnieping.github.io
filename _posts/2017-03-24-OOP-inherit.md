@@ -29,6 +29,7 @@ Cat.prototype = new Animal();
 Cat.prototype.name = 'cat';
 
 // Test Code
+var Animal = new Animal();
 var cat = new Cat();
 console.log(cat.name);
 console.log(cat.sleep());

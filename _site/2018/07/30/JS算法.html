@@ -1,0 +1,122 @@
+<p>这里收集一些JS常用的算法</p>
+
+<h4 id="一算法复杂度">一、算法复杂度</h4>
+
+<p>算法复杂度分为时间复杂度和空间复杂度。</p>
+
+<p>时间复杂度：执行算法所需的时间</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>T(n)=O(f(n))
+T(n):一个算法中的语句执行次数
+一般情况下，算法中基本操作重复执行的次数是问题规模n的某个函数，用T(n)表示，若有某个辅助函数f(n)，使得当n趋近于无穷大时，T（n)/f(n)的极限值为不等于零的常数，则称f(n)是T(n)的同数量级函数，记作T(n)=O(f(n))
+时间复杂度中：O(1)、O(n)、O(logn)、O(n²)分别可以称为常数阶、线性阶、对数阶和平方阶
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>计算时间复杂度的方法：
+1、用常数1代替运行时间中的所有加法常数
+2、修改后的运行次数函数中，只保留最高阶项
+3、去除最高阶项的系数
+</code></pre></div></div>
+
+<p>1、常数阶：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int sum = 0,n = 100; //执行一次  
+sum = (1+n)*n/2; //执行一次  
+System.out.println (sum); //执行一次 
+所以 f(n)=3，由第一条知时间复杂度为O(1)。
+</code></pre></div></div>
+
+<p>2、线性阶</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for(int i=0;i&lt;n;i++){
+//时间复杂度为O(1)的算法
+...
+}
+上面算法循环体中的代码执行了n次，因此时间复杂度为O(n)
+</code></pre></div></div>
+
+<p>3、对数阶</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int number=1;
+while(number&lt;n){
+number=number*2;
+//时间复杂度为O(1)的算法
+...
+}
+可以看出上面的代码，随着number每次乘以2后，都会越来越接近n，当number不小于n时就会退出循环。假设循环的次数为X，则由2^x=n得出x=log₂n，因此得出这个算法的时间复杂度为O(logn)
+</code></pre></div></div>
+
+<p>4、平方阶</p>
+
+<p>循环嵌套</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for(int i=0;i&lt;n;i++){   
+      for(int j=0;j&lt;n;i++){
+         //复杂度为O(1)的算法
+         ... 
+      }
+  }
+  线性阶时就已经得知是O(n)，现在经过外层循环n次，那么这段算法的时间复杂度则为O(n²)
+</code></pre></div></div>
+
+<p>空间复杂度：执行算法所需存储空间</p>
+
+<h4 id="二排序算法">二、排序算法</h4>
+
+<h5 id="1冒泡排序">1、冒泡排序</h5>
+
+<p>js实现冒泡排序</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function bubbleSort(data){
+    for(var i=0;i&lt;data.length;i++){
+        for(var j=0;j&lt;data.length -i -1;j++){
+            if(data[j] &lt; data[j+1]){
+            	var temp;
+                temp = data[j];
+                data[j] = data[j+1];
+                data[j+1] = temp;
+            }
+        }
+    }
+}
+var arr = [45, 32, 8, 33, 12, 22, 19, 97];
+bubbleSort(arr);
+</code></pre></div></div>
+
+<p>冒泡排序原理</p>
+
+<p>1、比较相邻的元素，如果第一个比第二个大，就交换他们。</p>
+
+<p>2、对每一对相邻元素都做这个操作，从第一对到最后一对，那么最后一个元素是最大值。</p>
+
+<p>3、重复以上步骤，对数组进行排序，但是最后一个不需要排序了。</p>
+
+<p>4、直到数组越来越少，需要排序的相邻元素都没有就结束。</p>
+
+<p>冒泡排序的时间复杂度 o(n*n)</p>
+
+<h5 id="2快速排序">2、快速排序</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function quickSort(arr){
+    //如果数组&lt;=1,则直接返回
+    if(arr.length&lt;=1){return arr;}
+    var pivotIndex=Math.floor(arr.length/2);
+    //找基准，并把基准从原数组删除
+    var pivot=arr.splice(pivotIndex,1)[0];
+    //定义左右数组
+    var left=[];
+    var right=[];
+
+    //比基准小的放在left，比基准大的放在right
+    for(var i=0;i&lt;arr.length;i++){
+         if(arr[i]&lt;=pivot){
+                left.push(arr[i]);
+         }else{
+                right.push(arr[i]);
+         }
+    }
+    //递归
+    return quickSort(left).concat([pivot],quickSort(right));
+ }
+</code></pre></div></div>
+

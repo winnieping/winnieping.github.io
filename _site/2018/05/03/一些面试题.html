@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="/styles/css/index.css">
+		<title>面试题</title>
+　　</head>
+　　<body>
+　　　　	<div class="container">
+	<div class="left">
+		<div class="content">
+			<div class="logo">
+				<img src="/../assets/logo.jpg" alt="logo">
+			</div>
+			<div class="motto">依你之萍</div>
+			<div class="navigation">
+				<span class="btn pink">
+					<a href="http://localhost:4000">
+						<img src="/../assets/home.png" alt="home">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="http://weibo.com/u/2627764953" target="_blank">
+						<img src="/../assets/weibo.png" alt="weibo">
+					</a>
+				</span>
+				<span class="btn pink">
+					<a href="https://github.com/winnieping" target="_blank">
+						<img src="/../assets/github.png" alt="github">
+					</a>
+				</span>
+				<span class="btn white">
+					<a href="/2016/02/01/list.html">
+						<img src="/../assets/note.png" alt="note">
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<h4 id="1如何解决0102-030000000000000004">1、如何解决0.1+0.2= 0.30000000000000004</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>js中浮点数采用IEEE 754标准的双精度浮点数表示。
+数字在转换成二进制的时候，会有不能整除的情况，根据精度（双精度浮点数)取64位有效值。再转化为十进制就是0.3000……4.
+解决方法：toFixed
+let a = 0.11,b = 0.2801,d = 1.002;
+let c = a + b + d;
+let e = c.toFixed(4);
+parseFloat(c.toFixed(10))
+</code></pre></div></div>
+
+<h4 id="2实现一个数结构的菜单">2、实现一个数结构的菜单</h4>
+
+<p>2.1递归调用
+以<strong>斐波那契数列</strong>为例</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Fibonacci = function(n){   
+	if(n &lt;= 2){
+    	return 1
+     }else{
+         return Fibonacci(n - 1) + Fibonacci(n - 2);
+     }
+}
+let x = Fibonacci(10);
+console.log("Fibonacci",x)
+</code></pre></div></div>
+
+<p>2.2</p>
+
+<p>树结构菜单实现</p>
+
+<p>参考treeMenu文件夹</p>
+
+<h4 id="3设计如下一个场景">3、设计如下一个场景</h4>
+
+<p>10个ajax同时发起，全部响应后展示所有返回结果，如果最多容忍3个http请求失败。</p>
+
+<h4 id="4如何实现-a1a2">4、如何实现 a==1&amp;&amp;a==2</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const a = { i: 1, toString: function () { return a.i++; }};
+console.log(a == 1 &amp;&amp; a == 2 &amp;&amp; a == 3);
+</code></pre></div></div>
+
+<p>这里讲的是js的隐式转换，当a为对象时，js会调用toString方法，我们修改了toString方法，每次运行完a会加一，所以等式成立。</p>
+
+<p>隐士转换：	对象 -字符串 -数字</p>
+
+<p>​			布尔-数字</p>
+
+	</div>
+</div>
+
+
+　　</body>
+</html>

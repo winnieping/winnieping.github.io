@@ -1,0 +1,118 @@
+<h5 id="1-节点">1. 节点</h5>
+
+<p>DOM节点，也叫DOM Node。</p>
+
+<p>根据 W3C 的 HTML DOM 标准，HTML 文档中的所有内容都是节点。</p>
+
+<ul>
+  <li>
+    <p>整个文档是一个文档节点</p>
+  </li>
+  <li>
+    <p>每个 HTML 元素是元素节点</p>
+  </li>
+  <li>
+    <p>HTML 元素内的文本是文本节点</p>
+  </li>
+  <li>
+    <p>每个 HTML 属性是属性节点</p>
+  </li>
+  <li>
+    <p>注释是注释节点</p>
+
+    <p>所以HTML节点类型一共有5种。文档节点、元素节点、文本节点、属性节点、注释节点</p>
+  </li>
+</ul>
+
+<h5 id="2-创建节点">2. 创建节点</h5>
+
+<p>创建元素节点、创建文本节点、创建文档碎片、克隆节点</p>
+
+<p>createElement、createTextNode、createDocumentFragment、cloneNode</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var a = document.createElement("标签名");
+var node = document.createTextNode("我是文本节点");
+var m = a.cloneNode(true);
+node.cloneNode(true/false) ，它接收一个bool参数，用来表示是否复制子元素。
+</code></pre></div></div>
+
+<h5 id="3节点之间的关系">3.节点之间的关系</h5>
+
+<p>var a = document.getElementById(“id1”);</p>
+
+<p>父节点 	 a.parentNode</p>
+
+<p>子节点 	a.childNodes</p>
+
+<p>兄弟节点		a.nextSibling		a.previousSibling</p>
+
+<h5 id="4节点的操作">4.节点的操作</h5>
+
+<p>为元素添加自己的属性</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a.id = “myDiv”；
+a.className = "myDivClass";
+</code></pre></div></div>
+
+<p>节点添加、删除、替换</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+parent.appendChild(child);
+如：document.body.appendChild(a);
+parentNode.insertBefore(newNode, refNode);
+如：
+var deletedChild = parent.removeChild(node);
+parent.replaceChild(newChild, oldChild);
+</code></pre></div></div>
+
+<h5 id="5节点查找">5.节点查找</h5>
+
+<p><code class="highlighter-rouge">getElementById()</code>			方法可返回对拥有指定 ID 的第一个对象的引用。
+<code class="highlighter-rouge">getElementsByClassName() </code>	方法可以返回所有指定类名的对象的集合。。
+<code class="highlighter-rouge">getElementsByTagName()</code>		方法可返回带有指定标签名的对象的集合。
+<code class="highlighter-rouge">getElementsByName() </code>		方法可返回带有指定名称的对象的集合。
+<code class="highlighter-rouge">querySelector() </code>		方法返回文档中匹配指定 CSS 选择器的一个元素。
+<code class="highlighter-rouge">querySelectorAll()</code>			方法返回匹配所有指定选择器的元素。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="div"&gt;A&lt;/div&gt;
+&lt;ul id='ul'&gt;
+    &lt;li class="li"&gt;B&lt;/li&gt;
+    &lt;li class="li"&gt;C&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span&gt;D&lt;/span&gt;
+&lt;input name='name' type="button" /&gt;
+
+document.getElementById("ul");
+document.getElementsByClassName('div');
+document.getElementsByTagName('span');
+document.getElementsByName('name');
+document.querySelector(".div")
+document.querySelectorAll(".div ,#ul")
+</code></pre></div></div>
+
+<h5 id="6属性节点操作">6.属性节点操作</h5>
+
+<p><code class="highlighter-rouge">setAttribute()</code>添加一个新属性（<code class="highlighter-rouge">attribute</code>）到元素上，或改变元素上已经存在的属性的值。如果这个指定的属性已存在，则仅设置/更改值。</p>
+
+<p><code class="highlighter-rouge">removeAttribute()</code>该方法用于移除元素的属性。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//添加属性
+var div = document.getElementById("div");
+div.setAttribute("class", "new_class");
+div.setAttribute("id", "new_id");
+
+//移除属性
+var div2 = document.getElementById("div2");
+div2.removeAttribute("class");
+</code></pre></div></div>
+
+<h5 id="7节点添加事件">7.节点添加事件</h5>
+
+<p><code class="highlighter-rouge">addEventListener()</code>将指定的事件监听器注册到目标对象上，当目标对象触发制定的事件时，指定的回调函数就会触发。目标对象可以是 文档上的元素、 document、 window 或者XMLHttpRequest(比如onreadystatechange事件)。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var div = document.getElementById("div");
+div.addEventListener("click", function(){
+      alert('嘻嘻');
+},false);
+</code></pre></div></div>
+

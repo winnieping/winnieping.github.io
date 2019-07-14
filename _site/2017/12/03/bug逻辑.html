@@ -79,6 +79,56 @@ You can mix require and export. You can‘t mix import and module.exports.
 
 </code></pre></div></div>
 
+<h5 id="6数组删除">6、数组删除</h5>
+
+<p>循环数组并删除某项数组不能正向遍历</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let arr = [1,2,2,2,2,3,4];
+ arr.forEach((v,i)=&gt;{
+ 	if(v===2){
+        arr.splice(i,1);
+        }
+  }) 
+  console.log(arr); //输出[1,2,2,3,4] 
+</code></pre></div></div>
+
+<p>可以发现没有完全删除2，因为正向遍历数组索引改变，导致会有一个紧随2的值未被删除。</p>
+
+<p>解决办法:	反向遍历</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let arr = [1,2,2,2,2,3,4];
+for(let i = arr.length;i &gt; 0;i--){
+	if(arr[i] === 2){
+        arr.splice(i,1);
+    }
+}
+console.log(arr); //输出[1,3,4]
+</code></pre></div></div>
+
+<h5 id="7ifcondition">7、if（condition）</h5>
+
+<p>判断成立与否的condition条件值不一定是布尔值，js会自动调用Boolean（）转换函数将condition结果转换。</p>
+
+<p>Boolean() 函数：如果对象无初始值或其值为0 ，-0，null，“‘，false，undefined，NaN，那么结果为false，否则为true。</p>
+
+<p>思考：Boolean( “false”)</p>
+
+<h5 id="8如何判断json对象下的某一个属性值是否存在">8、如何判断json对象下的某一个属性值是否存在</h5>
+
+<p>同上面第七点：所以不能直接判断 if（obj.type）</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>假如type值为0，if语句依然是false
+</code></pre></div></div>
+
+<p>三种方法：</p>
+
+<p>1、obj.hasOwnProperty(prop)</p>
+
+<p>2、in关键字   if（prop in obj）</p>
+
+<p>3、！== undefined  if(obj.name !== undefined)</p>
+
+<p>OK 完美解决</p>
 
 	</div>
 </div>
