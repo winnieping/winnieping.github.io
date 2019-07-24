@@ -94,6 +94,35 @@ function sum(x,y){
 }(); //这是错误的，因为function关键字是一个函数声明的开始，函数声明后面不能立即执行。
 </code></pre></div></div>
 
+<p>var f = function(){<strong>**}; //定义一个函数<br />
+f(); //当我们在函数后面加个括号就能实现自执行，那么是不是意味着下面这个也可以自执行?<br />
+function(){</strong>**}();  //SyntaxError: Unexpected token <br />
+并不能实现！</p>
+
+<p>######1、原因：</p>
+
+<p>在一个表达式后面加上括号()，该表达式会立即执行，但是在一个语句后面加上括号()    ，是完全不一样的意思，他的只是分组操作符。</p>
+
+<p>######2、解决：</p>
+
+<p>这个问题，我们只需要用大括弧将代码的代码全部括住就行了，因为JavaScript里括弧()里面不能包含语句。
+解析器在解析function关键字的时候，会将相应的代码解析成function表达式，而不是function声明。</p>
+
+<p>######3、用法：</p>
+
+<p>用于闭包保存状态，eg见上文。利用这些被lock住的传入参数，自执行函数表达式可以有效地保存状态。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (var i = 0; i &lt; 5; i++) {
+	 (function(i){
+		setTimeout(function() {
+		    console.log(i);
+		  }, 1000 * i);
+	 })(i)
+}
+</code></pre></div></div>
+
+<p>###</p>
+
 <h4 id="3函数实参形参参数传值流程">3、函数实参形参，参数传值流程</h4>
 
 <p><img src="http://localhost:4000/assets/参数.jpg" alt="参数.jpg" /></p>
@@ -318,6 +347,7 @@ console.log(x); // 1
 }
 setTimeout(print,1000);</p>
 
+<p>####8、函数关键字</p>
 
   </div><a class="u-url" href="/2018/01/30/Js%E5%87%BD%E6%95%B0.html" hidden></a>
 </article>
